@@ -3,46 +3,48 @@ los coeficientes de la ecuación y devuelve un array con las soluciones. Si no h
 soluciones reales, devuelve FALSE.
  -->
 <?php
-function ecuacion_segundo_grado($a,$b,$c){
-$a=9;
-$b=-7; 
-$c=-6; 
-$result=true;
-}
-
-$supe=$b**2-4*$a*$c; 
- if ($supe<0){ 
-   $result=false;
-   echo"El resultado es ", $result; 
-   return;  
-}
- if($a==0){ 
-    if($b==0){ 
-        if($c==0){ 
-            echo "Cualquier número sera una solución";
-        }else 
-       $result=false; 
-       echo"El resultado es ", $result; 
-       return;
-    }else{ 
-      
-        $soluc=-$c/$b;
-        echo "Una de las soluciones es igual a $soluc";
+function ecuacion_segundo_grado($a, $b, $c) {
+    if ($a == 0) {
+        if ($b != 0) {
+            return [-$c / $b]; // Ecuación lineal
+        } elseif ($c == 0) {
+            return "Cualquier número es solución"; // Ecuación trivial
+        } else {
+            return false; // No hay solución
+        }
     }
 
- }else{ 
-  
-    if($supe==0){  
-       
-        $soluc=-$b/(2*$a); 
-        echo "Solucion igual a $soluc"; 
-    }else{ 
-       
-        $solucA= (-$b+sqrt($supe))/(2*$a);
-        $solucB= (-$b-sqrt($supe))/(2*$a);
-        echo "La primera solución es $solucA y la segunda es $solucB";
+    $discriminante = $b ** 2 - 4 * $a * $c;
+    
+    if ($discriminante < 0) {
+        return false; // No hay soluciones reales
     }
- }
 
+    $solucion1 = (-$b + sqrt($discriminante)) / (2 * $a);
+    
+    if ($discriminante == 0) {
+        return [$solucion1]; // Una solución real
+    }
 
+    $solucion2 = (-$b - sqrt($discriminante)) / (2 * $a);
+    return [$solucion1, $solucion2]; // Dos soluciones reales
+}
+
+// Ejemplo de uso
+$resultado = ecuacion_segundo_grado(9, -7, -6);
+
+if ($resultado === false) {
+    echo "No hay soluciones reales.";
+} elseif (is_array($resultado)) {
+    if (count($resultado) == 1) {
+        echo "Solución: " . $resultado[0];
+    } else {
+        echo "Soluciones: " . $resultado[0] . " y " . $resultado[1];
+    }
+} else {
+    echo $resultado;
+}
 ?>
+
+
+

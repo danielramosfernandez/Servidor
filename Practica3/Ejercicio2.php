@@ -17,4 +17,3 @@ if ($resultado === false) {
     echo $resultado;
 }
 ?>
-?>

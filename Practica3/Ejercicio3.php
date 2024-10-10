@@ -16,9 +16,7 @@ function comp($frase){
     $frase debe ser identico (eso siginifica ===) a 
     $frase_reves */
 
-} 
-
-
+}
 $texto="Yo hago yoga hoy"; 
 if(comp($texto)){ 
 echo "Este texto es palíndromo";

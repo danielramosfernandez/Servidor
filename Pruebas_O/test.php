@@ -10,4 +10,5 @@ $persona->edad = 20;
 echo 'Nombre: ' . $persona->nombre . '<br />';
 echo 'Apellido: ' . $persona->apellido . '<br />';
 echo 'Edad: ' . $persona->edad . '<br />';
+echo $persona->saludar();
 ?>

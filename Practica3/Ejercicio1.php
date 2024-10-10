@@ -4,10 +4,7 @@ soluciones reales, devuelve FALSE.
  -->
 <?php
 function ecuacion_segundo_grado($a,$b,$c){
-$a=9;
-$b=-7; 
-$c=-6; 
-$result=true;
+
 }
 
 $supe=$b**2-4*$a*$c; 

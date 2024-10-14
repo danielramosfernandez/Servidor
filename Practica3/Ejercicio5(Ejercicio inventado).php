@@ -20,5 +20,6 @@ echo "Dentro del array hay " .count($coches). " elementos";
 //count sirve para ver la cantidad de elementos que hay en el array coches
 echo "<br>";
 echo "Los valores dentro del array son: ". implode (" ,", array_values($coches));
-
+/* implode sirve para ver los string que forman un array mientras que el array_values() 
+   nos sirve para que reproduzca dichos elementos*/
 ?>

@@ -7,5 +7,6 @@ $persona = new Persona('Fernando', 'Gaitan', 26);
 //Mostramos por pantalla los valores.
 echo $persona->saludar();
 //Destruimos el objeto.
-unset($persona);
+unset($persona);  
+
 ?>

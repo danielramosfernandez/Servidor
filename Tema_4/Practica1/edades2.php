@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] =='POST'){ //comprueba si el formulario fue enviad
        
         $mensaje = "Aún no me has dicho la edad"; 
     }
-}
+}else{
 ?>
 <!DOCTYPE html> 
 <html lang="es">
@@ -56,6 +56,7 @@ if($_SERVER['REQUEST_METHOD'] =='POST'){ //comprueba si el formulario fue enviad
             <input type="submit" value="resultado">
         </form>  
         <?php
+}
         if(isset($mensaje)){
             echo "<h2>$mensaje</h2>";
         }

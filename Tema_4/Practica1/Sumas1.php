@@ -10,7 +10,7 @@ if($_SERVER['REQUEST_METHOD'] =='POST'){ //comprueba si el formulario fue enviad
             
         $resultado=$num1+$num2; 
     }
-}
+}else{
 ?>
 <!DOCTYPE html> 
 <html lang="es">
@@ -21,12 +21,13 @@ if($_SERVER['REQUEST_METHOD'] =='POST'){ //comprueba si el formulario fue enviad
     <body>
         <h2>Introduzca los numeros que quiere sumar: </h2>
 
-        <form method = "post" action="Sumas1.php"> 
+        <form method = "post" action="#"> 
             Número 1: <input type ="text" name="num1" required><br></br> 
             Número 2: <input type ="text" name="num2" required><br></br> 
             <input type="submit" value="Sumar">
         </form>  
         <?php
+}
         if(isset($resultado)){
             echo "<h2>Resultado es </h2>"; 
             echo "<p>$num1 + $num2 =: $resultado</p>";

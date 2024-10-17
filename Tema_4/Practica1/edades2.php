@@ -37,7 +37,7 @@ if($_SERVER['REQUEST_METHOD'] =='POST'){ //comprueba si el formulario fue enviad
     <body>
         <h2>Introduzca los numeros que quiere sumar: </h2>
 
-        <form method = "post" action="edades2.php"> 
+        <form method = "post" action="#"> 
         <label>
             <input type="radio" name="boton" value="Menos de 14 años"> Menos de 14 años
         </label><br>

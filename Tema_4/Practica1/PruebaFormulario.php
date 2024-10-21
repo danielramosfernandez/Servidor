@@ -7,17 +7,20 @@
 </head>
 <body>
 
-    <!-- Esta parte es la misma q la tuya pero dentro de un HTML -->
-    <form action="#" method="post"> 
+  
+  
+    <form action="PruebaFormularioB.php" method="get">
         <?php
-        for($i=0;$i<9;$i++){ 
+        for($i=0; $i<3; $i++){ 
             echo "<label for='caja$i'>Caja de texto $i:</label><br>";
             echo "<input type='text' id='caja$i' name='caja$i'><br><br>";
         }
         ?>
         <input type="submit" value="Enviar">
     </form>
-    <!-- El formulario acaba aquí -->
-     
+ 
+
+
+    
 </body>
 </html>

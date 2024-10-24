@@ -1,0 +1,36 @@
+1. Construir una calculadora, se ha de resolver con dos script, el primero muestra el
+formulario y el segundo el resultado. Al pulsar el botón ENVIAR se mostrará la suma
+de los valores introducidos en las cajas de texto.
+--------------------------------------------------------------------------------------------------
+2. Diseñar el siguiente formulario, se ha de resolver con dos script:
+Y obtener el siguiente mensaje al pulsar el botón RESULTADO:
+
+-Menos de 14 años : eres una personita
+-Entre 15 y 20 años: todavía eres muy joven
+-De 21 a 40 años: eres una persona joven
+-Entre 41 y 60 años: eres una persona madura
+-Más de 60 años: Ya eres una persona mayor
+-Aún no me has dicho tu edad
+--------------------------------------------------------------------------------------------------
+3. Construir una calculadora, se ha de resolver con un script, en la primera ejecución se
+ha de mostrar el formulario únicamente y en las posteriores, el resultado y el
+formulario con los valores guardados. Al pulsar uno de los cuatro botones se
+mostrará la operación solicitada de los valores introducidos en las cajas de texto.
+--------------------------------------------------------------------------------------------------
+4. Construir un calendario, se ha de introducir un mes y un año y al pulsar el botón
+ENVIAR, a partir de esos datos, con las funciones de PHP para trabajar con fechas se
+ha de dibujar el calendario del mes y año indicado. Se ha de controlar el número de
+días, así como el día de la semana en que empieza dicho mes. El resultado se ha de
+mostrar en formato tabla de HTML y se ha de resolver en un solo script.
+--------------------------------------------------------------------------------------------------
+5. Crear un formulario (se ha de hacer con un bucle FOR con el que se crearán las 9
+cajas de texto), además tendrá un botón ENVIAR que al pulsarlo mostrará los
+elementos del vector y su suma. Debajo del resultado se han de mostrar de nuevo las
+9 cajas de texto para poder repetir el proceso, se ha de resolver con un script:
+--------------------------------------------------------------------------------------------------
+6. Se ha de crear un formulario con una caja de texto y un botón ACEPTAR, según el
+valor introducido en la caja de texto se han de mostrar los elementos indicados, a
+partir de ahí la web se ha de comportar igual que el ejercicio anterior, se ha de
+resolver con un sólo script.
+
+

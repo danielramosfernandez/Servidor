@@ -37,10 +37,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Esta parte comprueba si el formul
     /* Con este for se autogenera 9 inputs donde introducir los números */
     for ($i = 1; $i <= 9; $i++) {
         echo '<label>' . ($i - 1) . '
-        /* Esta siguiente línea es el input donde se introducen los datos */
+        
             <input type="number" name="num' . $i . '" value="' . ($_POST['num' . $i] ?? '') . '" step="any" required>
         </label>';
-        echo '<br>';
+        echo '<br>';/* Esta siguiente línea es el input donde se introducen los datos */
     }
     ?>
         <br>
@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Esta parte comprueba si el formul
     /* Este condicional mostrará el $mensaje en caso de q haya alguno guardado en
        el array */
     if (!empty($mensaje)) {
-        echo "<h2>Resultado: $mensaje</h2>";
+        echo "<h2> $mensaje</h2>";
     }
     ?>
 </body>

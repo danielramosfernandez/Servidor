@@ -9,25 +9,22 @@
             display: inline-block;
             width: 100px;          
             height: 100px;        
-            background-color:red ; 
             border-radius: 50%;  
-               
             margin: 20px;          
         }
     </style>
 </head>
 <body>
-    <div class="circulo"></div>
-    <div class="circulo"></div>
-    <div class="circulo"></div>
-    <div class="circulo"></div> 
-    <script>
     <?php
-    function colores(){ 
-        $colores = ["#FF0000","#0000FF", "#FFFF00","#0FF000"]; 
-        
+    
+    $colores = ["#FF0000", "#00FF00", "#0000FF", "#FFFF00"]; 
+
+    shuffle($colores);
+
+    
+    foreach ($colores as $color) {
+        echo "<div class='circulo' style='background-color: $color;'></div>";
     }
     ?>
-    </script>
 </body>
 </html>

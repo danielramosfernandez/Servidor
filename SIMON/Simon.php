@@ -30,9 +30,13 @@
     
     foreach ($colores as $color) {
         echo "<div class='circulo' style='background-color: $color;'></div>";
+        
     }
     ?> 
     <br>
-    <button id="enviar" type="submit">Enviar solucion</button>
+    <form action="Respuesta.php" method="POST">
+    <input type="hidden" name="color" value="<?php echo $color;?>">
+    <button id="enviar" type="submit">EMPEZAR A JUGAR</button>
+    </form>
 </body>
 </html>

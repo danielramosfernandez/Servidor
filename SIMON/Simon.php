@@ -22,15 +22,10 @@
 </head>
 <body>
     <?php
-    
     $colores = ["#FF0000", "#00FF00", "#0000FF", "#FFFF00"]; 
-
     shuffle($colores);
-
-    
     foreach ($colores as $color) {
         echo "<div class='circulo' style='background-color: $color;'></div>";
-        
     }
     ?> 
     <br>

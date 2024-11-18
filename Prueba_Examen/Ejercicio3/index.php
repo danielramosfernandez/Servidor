@@ -47,5 +47,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     Adivina mi número: <input type="number" name="numeros" required><br><br><!-- Boton -->
     <input type="submit" value="Enviar"><!-- Boton -->
 
-</form>
+</form><!-- Cerramos el form -->
 

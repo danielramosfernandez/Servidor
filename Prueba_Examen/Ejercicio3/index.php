@@ -1,49 +1,51 @@
 <?php
-session_start();
+session_start();//Empieza la sesión 
 
-// Inicializar variables en la sesión si no existen
-if (!isset($_SESSION["num"])) {
-    $_SESSION["num"] = rand(1, 100); 
-    $_SESSION["intentos"] = 0;       
+
+if (!isset($_SESSION["num"])) {//Comprueba si el número está introducido
+    $_SESSION["num"] = rand(1, 100); //Guardamos en variables de sesión el número Random
+    $_SESSION["intentos"] = 0;//Guardamos en una variable de sesión el número de intentos       
 }
 
-$mensaje = '';
+$mensaje = '';//Aqui guardamos el mensaje
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_POST['numeros'])) { // Verificar que se envió el número
-        $elemento = (int)$_POST['numeros']; // Convertir a entero
-
+    if (isset($_POST['numeros'])) {//Si el numero está introducido
+        $elemento = (int)$_POST['numeros']; //Guardamos el numero que entra en elemento
       
-        if ($elemento > $_SESSION["num"]) { 
-            $mensaje = "El número es MENOR.";
-            $_SESSION["intentos"]++;
-        } elseif ($elemento < $_SESSION["num"]) { 
-            $mensaje = "El número es MAYOR.";
-            $_SESSION["intentos"]++;
-        } else {
-            $mensaje = "¡Has acertado! Has necesitado " . ($_SESSION["intentos"] + 1) . " intentos.";
+        if ($elemento > $_SESSION["num"]) { //si nuestro número es menor que el random
+            $mensaje = "El número es MENOR.";//muestra este mensaje
+            $_SESSION["intentos"]++;//Se acumula intentos al haber fallado
 
-            unset($_SESSION["num"]);
-            unset($_SESSION["intentos"]);
+        } elseif ($elemento < $_SESSION["num"]) {//Si el número que introducimos es mayor
+            $mensaje = "El número es MAYOR.";//El mensaje correspondiente
+            $_SESSION["intentos"]++;//Se suma otro intento
+
+        } else {
+            $mensaje = "¡Has acertado! Has necesitado " . ($_SESSION["intentos"] + 1) . " intentos.";//Mensaje de victoria
+            unset($_SESSION["num"]);//Se reinicia los numeros
+            unset($_SESSION["intentos"]);//Se reinician los intentos
         }
     }
 }
 ?>
 
-<!DOCTYPE html>
+<!DOCTYPE html><!-- Creamos el html -->
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Adivina el Número</title>
-</head>
+
+        <head>
+            <meta charset="UTF-8">
+            <title>Adivina el Número</title><!-- Titulo -->
+        </head>
 <body>
 
 
-<p><?= $mensaje ?></p>
+<p><?= $mensaje ?></p><!-- Se reproduce el mensaje -->
+<form method="post" action="#"><!-- Llamamos en post, es un formulario -->
 
-<form method="post" action="#">
-    Adivina mi número: <input type="number" name="numeros" required><br><br>
-    <input type="submit" value="Enviar">
+    Adivina mi número: <input type="number" name="numeros" required><br><br><!-- Boton -->
+    <input type="submit" value="Enviar"><!-- Boton -->
+
 </form>
 

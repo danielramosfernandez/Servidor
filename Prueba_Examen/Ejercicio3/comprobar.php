@@ -17,3 +17,5 @@
         }
     }
 ?>
+<!-- El uso de END se da para hacer echo en bloques, es decir 
+     de alguna manera podemos decir que son unas megacomillas -->

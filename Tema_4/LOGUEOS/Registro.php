@@ -1,5 +1,5 @@
 
-
+//REGISTRO
 <!DOCTYPE html> 
 <html lang="es">
     <head>

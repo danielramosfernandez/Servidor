@@ -2,7 +2,7 @@
 // Iniciar la sesión al inicio de cada archivo PHP donde se manejan las sesiones
 session_start();
 
-// Variables globales inicializadas (simulando una base de datos)
+// Variables globales inicializadas
 $usuarioRegistrado = null;//El usuario está vacio
 $passwordRegistrado = null;//La contraseña esta vacía
 $rolRegistrado = null;//El rol está vacío

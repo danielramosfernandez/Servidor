@@ -30,8 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <h2>Iniciar Sesión</h2>
     <form method="POST" action="acceso.php">
-        Nombre: <input type="text" name="usu" required><br><br>
-        Contraseña: <input type="password" name="pass" required><br><br>
+        Nombre:<br> <input type="text" name="usu" required><br><br>
+        Contraseña:<br> <input type="password" name="pass" required><br><br>
         <input type="submit" value="INICIAR SESIÓN">
     </form>
 </body>

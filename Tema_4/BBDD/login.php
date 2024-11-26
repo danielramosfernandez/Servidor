@@ -3,4 +3,5 @@
  $db = 'bdsimon';
  $un = 'jugador';
  $pw = 'jugador';
+ 
 ?> 

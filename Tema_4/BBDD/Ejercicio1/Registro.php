@@ -4,23 +4,33 @@ require_once 'Login.php';
 $conn = new mysqli($hn,$un,$pw,$db,3307); 
 if ($conn->connect_error) die("Error de conexión: " . $conn->connect_error);
 
-if (isset($_POST['usu']) && isset($_POST['pass']))
-{
+if (isset($_POST['usu']) && isset($_POST['pass'])) {
     $usuario = $_POST['usu']; 
     $contra = $_POST['pass']; 
     $rol = $_POST['rol'];
-    $query ="INSERT INTO usuarios(Usu,contra,rol) VALUES ('$usuario','$contra','$rol')";
-    $result = $conn->query($query); 
-    if (!$result){ echo "INSERT failed<br><br>"; 
-    }else{ 
-        echo"Usuario registrado correctamente";
-    }
-  
-}else{ 
-        echo"por favor complete correctamente el registro";
-    }
 
- 
+  
+    $query = "SELECT * FROM usuarios WHERE Usu = '$usuario'";
+    $result = $conn->query($query);
+    if ($result->num_rows > 0) {
+        echo "El nombre de usuario ya está registrado. Por favor, elige otro.";
+    } else {
+        if ($_POST['pass'] === $_POST['conf']) {
+            $query = "INSERT INTO usuarios(Usu, contra, rol) VALUES ('$usuario', '$contra', '$rol')";
+            $result = $conn->query($query); 
+            if (!$result) {
+                echo "INSERT failed<br><br>"; 
+            } else { 
+                echo "Usuario registrado correctamente";
+            }
+        } else {
+            echo "Las contraseñas no coinciden.";
+        }
+    }
+} else { 
+    echo "Por favor complete correctamente el registro.";
+}
+
 ?>
 
 <!DOCTYPE html>

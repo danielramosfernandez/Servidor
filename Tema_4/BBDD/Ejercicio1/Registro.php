@@ -1,34 +1,26 @@
 <?php
-session_start();
-//Para poder tener que repetir operaciones, hay que utilizar sesiones
-// Verificar si el formulario ha sido enviado
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $usu = $_POST['usu'];
-    $pass = $_POST['pass'];
-    $conf = $_POST['conf'];
-    $rol = isset($_POST['rol']) ? $_POST['rol'] : 'estandar';
 
-    // Validar si las contraseñas coinciden
-    if ($pass === $conf) { 
-        
-        // Verificar si ya hay un usuario registrado con ese nombre
-        if (isset($_SESSION['usuarios'][$usu])) {
-            echo "Error: Ya existe un usuario con ese nombre. Elige otro.<br>";
-            echo '<a href="registro.php">Volver al registro</a>';
-        } else {
-            // Guardar el usuario en la sesión (simulación de base de datos)
-            $_SESSION['usuarios'][$usu] = [
-                'password' => $pass,
-                'rol' => $rol,
-            ];
-            echo "Registro exitoso. Bienvenido, $usu. Tu rol es: $rol.<br>";
-            echo '<a href="acceso.php">Ir al inicio de sesión</a>';
-        }
-    } else {
-        echo "Error: Las contraseñas no coinciden. Por favor, vuelve a intentarlo.<br>";
-        echo '<a href="registro.php">Volver al registro</a>';
+require_once 'Login.php';  
+$conn = new mysqli($hn,$un,$pw,$db,3307); 
+if ($conn->connect_error) die("Error de conexión: " . $conn->connect_error);
+
+if (isset($_POST['usu']) && isset($_POST['pass']))
+{
+    $usuario = $_POST['usu']; 
+    $contra = $_POST['pass']; 
+    $rol = $_POST['rol'];
+    $query ="INSERT INTO usuarios(Usu,contra,rol) VALUES ('$usuario','$contra','$rol')";
+    $result = $conn->query($query); 
+    if (!$result){ echo "INSERT failed<br><br>"; 
+    }else{ 
+        echo"Usuario registrado correctamente";
     }
-}
+  
+}else{ 
+        echo"por favor complete correctamente el registro";
+    }
+
+ 
 ?>
 
 <!DOCTYPE html>
@@ -44,8 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         Contraseña:<br> <input type="password" name="pass" required><br><br>
         Confirmar contraseña:<br> <input type="password" name="conf" required><br><br>
         Rol:<br>
-        Estandar <input type="radio" name="rol" value="estandar" checked><br>
-        Premium <input type="radio" name="rol" value="premium"><br><br>
+        Jugador <input type="radio" name="rol" value="Jugador" checked><br>
+        Jugador Premium <input type="radio" name="rol" value="Jugador Premium"><br><br>
         <input type="submit" value="REGISTRARSE">
     </form>
 </body>

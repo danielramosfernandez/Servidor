@@ -1,17 +1,54 @@
 <?php
-    // Inicia la sesión para poder acceder a las variables de sesión
+    
     session_start();
-
-    // Comprueba si el valor almacenado en $_SESSION["color"] es igual al valor de $_POST["resColor"]
-    if ($_SESSION["color"] == $_POST["resColor"]) {
-        // Si los colores coinciden, muestra un enlace indicando "Acertaste, nueva ronda"
-        echo <<< _END
+    require_once "pintar-circulos.php";
+    ?>
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <style>
+                .circulos {
+                    display: flex;
+                }
+                .circulo {
+                    width: 100px;       
+                    height: 100px;      
+                    
+                    border-radius: 50%; 
+                }
+            </style>
+        </head>
+    <?php
+    if ($_SESSION["solucion"] == $_SESSION["respuesta"]) {
+    ?>
+        
+        <body>
+            <h2>CORRECTO</h2>
+            <div class="circulos">
+                <?php pintar_circulos($_SESSION["solucion"][0],$_SESSION["solucion"][1],$_SESSION["solucion"][2],$_SESSION["solucion"][3]);?>
+            </div>
             <a href="index.php">Acertaste, nueva ronda</a>
-        _END;
+        </body>
+        </html>
+        <?php
     } else {
-        // Si los colores no coinciden, muestra un enlace indicando "Fallaste, nueva ronda"
-        echo <<< _END
+        ?>
+        <body>
+            <h2>LA COMBINACIÓN CORRECTA ERA:</h2>
+            <div class="circulos">
+                
+                <?php pintar_circulos($_SESSION["solucion"][0],$_SESSION["solucion"][1],$_SESSION["solucion"][2],$_SESSION["solucion"][3]);?>
+            </div>
+            <h2>TU RESPUESTA:</h2>
+            <div class="circulos">
+                
+                <?php pintar_circulos($_SESSION["respuesta"][0],$_SESSION["respuesta"][1],$_SESSION["respuesta"][2],$_SESSION["respuesta"][3]);?>
+            </div>
             <a href="index.php">Fallaste, nueva ronda</a>
-        _END;
+        </body>
+        </html>
+        <?php
     }
+    session_destroy();
+    
 ?>

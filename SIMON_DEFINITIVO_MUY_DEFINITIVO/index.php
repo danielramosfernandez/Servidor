@@ -50,7 +50,7 @@ function color() {
     <?php $_SESSION["solucion"] = pintar_circulos(color(),color(),color(),color());?>
     </div>
     <br>
-    <form action="pregunta.php" method="post">
+    <form action="preguntar.php" method="post">
         
         <input type="submit" value="Jugar" name="submit">
     </form>

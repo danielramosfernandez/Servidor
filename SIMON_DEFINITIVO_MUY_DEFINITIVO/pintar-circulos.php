@@ -1,5 +1,5 @@
 <?php
-    
+        require_once "acceso.php";
     function pintar_circulos($col1,$col2,$col3,$col4) {
         echo<<<_END
             <div class="circulo" style="background-color: $col1"></div>

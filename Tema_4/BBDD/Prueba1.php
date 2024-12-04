@@ -28,7 +28,7 @@ if (isset($_POST['id']) && isset($_POST['usu']) && isset($_POST['contra']) && is
     $result = $conn->query($query);
     if (!$result) echo "Insert failed <br><br>". $conn->error;;
 } 
-
+*/
 echo <<<_END
 <form action="login.php" method="post">
     <pre>
@@ -40,7 +40,7 @@ echo <<<_END
     </pre>
 </form>
 _END;
- */
+ 
 
  
 

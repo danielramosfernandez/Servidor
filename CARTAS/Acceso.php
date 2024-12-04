@@ -1,7 +1,5 @@
 <?php 
 require_once 'Login.php';  
-$conn = new mysqli($hn,$un,$pw,$db,3307); 
-if ($conn->connect_error) die("Error de conexión: " . $conn->connect_error);
 
 if (isset($_POST['nombre']) && isset($_POST['pass'])) {
     $usuario = $_POST['nombre']; 

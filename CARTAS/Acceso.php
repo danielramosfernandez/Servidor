@@ -11,7 +11,8 @@ if (isset($_POST['nombre']) && isset($_POST['pass'])) {
         $row = $result->fetch_assoc();
         echo "<h2>Bienvenido ". htmlspecialchars($row['nombre']). "<br></h2>";
         session_start(); 
-        $_SESSION['nombre'] = $usuario;  // Almacenar el usuario en la sesión
+        $_SESSION['nombre'] = $usuario;  // Almacenar el usuario en la sesión 
+        header("location: ./mostrarcartas.php");
     } else {
         echo "Usuario o contraseña incorrectos.<br>";
     }

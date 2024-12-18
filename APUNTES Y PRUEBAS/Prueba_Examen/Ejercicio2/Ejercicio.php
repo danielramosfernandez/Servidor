@@ -31,10 +31,10 @@ $_SESSION["resul"] = $resul;
     }
     ?>
     <br><br>
-    <form action="#" method="post">
+    <form action="ejercicio21.php" method="post">
         <label for="resp">Número decimal</label>
         <input type="number" name="resp" required>
-        <input type='submit' valusse='Enviar'>
+        <input type='submit' value='Enviar'>
     </form>
 </body>
 </html>

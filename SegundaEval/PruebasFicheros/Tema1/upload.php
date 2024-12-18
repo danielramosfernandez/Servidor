@@ -18,12 +18,12 @@
     echo "El fichero existe.";
     $uploadOk = 0;
    }
-   if ($_FILES["fileToUpload"]["size"] > 500000) {
+   if ($_FILES["fileToUpload"]["size"] > 500000) {//Comprueba 
     echo "El fichero es demasiado grande.";
     $uploadOk = 0;
    }
-    if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"],$target_file)){ 
+    if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"],$target_file)){ //Se encarga de subir el archivo
         echo "El archivo se subio de manera correcta"; 
-        
+
     }
 ?>

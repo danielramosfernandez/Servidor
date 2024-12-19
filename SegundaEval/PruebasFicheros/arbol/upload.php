@@ -41,6 +41,8 @@ if (isset($_FILES['fileToUpload']['name']) && is_array($_FILES['fileToUpload']['
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Imágenes Subidas</title>
     <style>
+      
+
         .gallery {
             display: flex;
             flex-direction: column;
@@ -52,17 +54,17 @@ if (isset($_FILES['fileToUpload']['name']) && is_array($_FILES['fileToUpload']['
             gap: 10px;
         }
         .row img {
-            height: 250px;
+            height: 150px;
             width: 50px;
         }
-        .row:nth-child(1) img { width: 25%; } /* 4 imágenes */
-        .row:nth-child(2) img { width: 33.33%; } /* 3 imágenes */
-        .row:nth-child(3) img { width: 50%; } /* 2 imágenes */
-        .row:nth-child(4) img { width: 100%; } /* 1 imagen */
+        .row:nth-child(1) img { width: auto; } /* 4 imágenes */
+        .row:nth-child(2) img { width: auto; } /* 3 imágenes */
+        .row:nth-child(3) img { width: auto; } /* 2 imágenes */
+        .row:nth-child(4) img { width: auto; } /* 1 imagen */
     </style>
 </head>
 <body>
-    <h1>Imágenes Subidas</h1>
+
     <div class="gallery">
         <?php if (!empty($uploaded_files)) : ?>   
             <div class="row">

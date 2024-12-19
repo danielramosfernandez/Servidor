@@ -1,6 +1,6 @@
 <?php
 $target_dir = "ornamentos/";
-$uploaded_files = []; // Array para almacenar rutas de imágenes subidas
+$uploaded_files = []; 
 
 if (isset($_FILES['fileToUpload']['name']) && is_array($_FILES['fileToUpload']['name'])) {
     $totalFiles = count($_FILES['fileToUpload']['name']);
@@ -9,7 +9,7 @@ if (isset($_FILES['fileToUpload']['name']) && is_array($_FILES['fileToUpload']['
         $uploadOk = 1;
 
         if (empty($_FILES["fileToUpload"]["name"][$i])) {
-            continue; // Saltar inputs vacíos
+            continue; //Este metodo hace q si no pongo ninguna imagen se la salta sin mas
         }
 
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"][$i]);
@@ -18,21 +18,21 @@ if (isset($_FILES['fileToUpload']['name']) && is_array($_FILES['fileToUpload']['
         if (!empty($_FILES["fileToUpload"]["tmp_name"][$i]) && file_exists($_FILES["fileToUpload"]["tmp_name"][$i])) {
             $check = getimagesize($_FILES["fileToUpload"]["tmp_name"][$i]);
             if ($check === false) {
-                $uploadOk = 0; // No es una imagen
+                $uploadOk = 0; //Devuelve false 
             }
         } else {
-            $uploadOk = 0; // Error de procesamiento
+            $uploadOk = 0; //Devuelve false por error de procesamiento
         }
 
         if ($uploadOk == 1) {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file)) {
-                $uploaded_files[] = $target_file; // Agregar imagen subida al array
+                $uploaded_files[] = $target_file; //Añade la imagen subida al array
             }
         }
     }
 }
 
-// Mostrar imágenes subidas en una cuadrícula
+//El html para mostrar las imagenes
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -57,10 +57,10 @@ if (isset($_FILES['fileToUpload']['name']) && is_array($_FILES['fileToUpload']['
             height: 150px;
             width: 50px;
         }
-        .row:nth-child(1) img { width: auto; } /* 4 imágenes */
-        .row:nth-child(2) img { width: auto; } /* 3 imágenes */
-        .row:nth-child(3) img { width: auto; } /* 2 imágenes */
-        .row:nth-child(4) img { width: auto; } /* 1 imagen */
+        .row:nth-child(1) img { width: auto; } /* Damos formato a las 4 bolas de abajo */
+        .row:nth-child(2) img { width: auto; } /* Damos formato a la fila de 3 bolas*/
+        .row:nth-child(3) img { width: auto; } /* Damos formato a la fila de 2 bolas*/
+        .row:nth-child(4) img { width: auto; } /* Damos formato a la fila de la estrella */
     </style>
 </head>
 <body>

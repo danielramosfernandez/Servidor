@@ -41,12 +41,11 @@ if (isset($_FILES['fileToUpload']['name']) && is_array($_FILES['fileToUpload']['
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Imágenes Subidas</title>
     <style>
-      
-
         .gallery {
             display: flex;
             flex-direction: column;
             gap: 10px;
+            align-items: center;
         }
         .row {
             display: flex;
@@ -57,16 +56,24 @@ if (isset($_FILES['fileToUpload']['name']) && is_array($_FILES['fileToUpload']['
             height: 150px;
             width: 50px;
         }
-        .row:nth-child(1) img { width: auto; } /* Damos formato a las 4 bolas de abajo */
-        .row:nth-child(2) img { width: auto; } /* Damos formato a la fila de 3 bolas*/
-        .row:nth-child(3) img { width: auto; } /* Damos formato a la fila de 2 bolas*/
-        .row:nth-child(4) img { width: auto; } /* Damos formato a la fila de la estrella */
+        .row:nth-child(1) img {
+            width: auto;
+            height: 200px;
+            position: relative;
+            top: 0;
+        }
+        .row:nth-child(1) {
+            justify-content: center;
+        }
+        .row:nth-child(2) img { width: auto; } /* Damos formato a la fila de 3 bolas */
+        .row:nth-child(3) img { width: auto; } /* Damos formato a la fila de 2 bolas */
+        .row:nth-child(4) img { width: auto; } /* Damos formato a la fila de 4 bolas */
     </style>
 </head>
 <body>
 
     <div class="gallery">
-        <?php if (!empty($uploaded_files)) : ?>   
+        <?php if (!empty($uploaded_files)) : ?>
             <div class="row">
                 <?php foreach (array_slice($uploaded_files, 9, 1) as $file): ?>
                     <img src="<?= htmlspecialchars($file); ?>" alt="Imagen subida">
@@ -87,15 +94,10 @@ if (isset($_FILES['fileToUpload']['name']) && is_array($_FILES['fileToUpload']['
                     <img src="<?= htmlspecialchars($file); ?>" alt="Imagen subida">
                 <?php endforeach; ?>
             </div>
-            
-           
-           
-            
-            
-         
         <?php else : ?>
             <p>No se han subido imágenes.</p>
         <?php endif; ?>
     </div>
 </body>
 </html>
+

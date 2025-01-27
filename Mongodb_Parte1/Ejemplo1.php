@@ -9,5 +9,6 @@ $result=$collection->find(["Nombre"=>"Daniel Ramos", "Modulo"=>"Desarrollo Entor
 
 foreach($result as $dat){ 
     echo "Nombre:{$dat["Nombre"]}<br>Modulo:{$dat["Modulo"]}";
-}
+} 
+session_destroy();
 ?>

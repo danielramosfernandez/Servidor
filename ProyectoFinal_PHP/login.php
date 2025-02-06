@@ -1,7 +1,7 @@
 <?php // login.php
  $hn = 'localhost';
  $db = 'controldiabetes';
- $un = 'root';
- $pw = '';
+ $un = 'adminsDiabetes';
+ $pw = 'adminsDiabetes';
  
 ?> 

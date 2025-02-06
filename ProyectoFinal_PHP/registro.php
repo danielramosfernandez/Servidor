@@ -22,7 +22,7 @@ if (isset($_POST['nombre']) && isset($_POST['psw']) && isset($_POST['apellido'])
         echo "<a href='registro.php'>El nombre de usuario ya existe. Vuelva a intentarlo.</a>";
     } else {
         // Insertar nuevo usuario en la base de datos con los nuevos campos
-        $query = "INSERT INTO usuarios (Nombre, Clave, Apellido, FechaNacimiento) VALUES ('$nombre', '$psw', '$apellido', '$fecha_nacimiento')";
+        $query = "INSERT INTO usuario (Nombre, Clave, Apellido, FechaNacimiento) VALUES ('$nombre', '$psw', '$apellido', '$fecha_nacimiento')";
         $result = $connection->query($query);
         
         if ($result) {
@@ -43,7 +43,7 @@ if (isset($_POST['nombre']) && isset($_POST['psw']) && isset($_POST['apellido'])
     <title>Registro</title>
 </head>
 <body>
-    <h1>Crear una nueva cuenta</h1>
+    <h1>Crear una cuenta nueva</h1>
     <form action="#" method="post">
         <label for="nombre">Nombre: </label>
         <input type="text" id="nombre" name="nombre" required><br>

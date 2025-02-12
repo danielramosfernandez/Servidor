@@ -2,29 +2,29 @@
 
 use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
-    return ('Pantalla principal'); 
+    return view('catalog.index'); 
 });
 
 Route::get('/login', function () {
-    return ('Login usuario'); 
+    return view(); 
 });
 Route::get('/logout', function () {
-    return ('Logout del usuario'); 
+    return view(); 
 });
 Route::get('/catalog', function () {
-    return ('Listado de peliculas'); 
+    return view(); 
 });
 
 Route::get('/catalog/show/{id}', function ($id) {
-    return 'Vista detalle película '. $id; 
+    return view(show.blade.php); 
 });
 
 Route::get('/catalog/create', function () {
-    return ('Añadir película'); 
+    return view(create.blade.php); 
 });
 
 Route::get('catalog/edit/{id}', function ($id) {
-    return 'Modificar pelicula '. $id; 
+    return view(edit.blade.php). $id; 
 });
 
 

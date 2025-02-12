@@ -10,7 +10,7 @@ Route::get('/', function () {
 
 /* Utiliza la routa a pagina 1 para confirmar si está en la página 1 */
 Route::get('pagina1', function () {
-    return ('Estas en la página 1'); 
+    return view ('home', array('nombre'=>'Pedro')) ;
 });
 
 /* A la id se la rellena con un valor en este caso probamos con cinco */

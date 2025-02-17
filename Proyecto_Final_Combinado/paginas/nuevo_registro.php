@@ -15,9 +15,11 @@
         </div>
 
         <div class="col-md-6 col-lg-4 p-1 bg-light rounded shadow text-center">
+            <form action="../bbdd/nuevo_registro.php" method="POST">
             <h1 class="text-black mb-4">Nuevo Registro</h1>
 
             <!-- Radio Buttons de Comida -->
+        
             <div class="row p-2 justify-content-center">
                 <h2>Comida</h2>
                 <div class="col-2"> 
@@ -57,17 +59,23 @@
                 <h2>Cantidad de glucosa</h2>
                 <div class="row p-1 g-1">
                     <div class="col">
-                        <input type="number" class="form-control" placeholder="Glucosa 1h antes" aria-label="glucosa1">
+                        <input type="number" class="form-control" placeholder="Glucosa 1h antes" name="glucosa1">
                     </div>
                     <div class="col">
-                        <input type="number" class="form-control" placeholder="Glucosa 2h después" aria-label="glucosa2">
+                        <input type="number" class="form-control" placeholder="Glucosa 2h después" name="glucosa2">
                     </div>
                 </div>
-                <div class="row p-1 g-1 justify-content-center">
-                    <div class="col-6">
-                        <input type="number" class="form-control" placeholder="Insulina aplicada" aria-label="insulina">
+                <div class="col ">
+                    <div class="col">
+                        <input type="number" class="form-control" placeholder="Insulina aplicada" name="insulina">
                     </div>
                 </div>
+                <div class="col ">
+                    <div class="col">
+                        <input type="number" class="form-control" placeholder="Raciones consumidas" name="raciones">
+                    </div>
+                </div>
+                
             </div>
 
             <!-- Deporte -->
@@ -75,7 +83,7 @@
                 <h2>Deporte</h2>
                 <div class="row p-1 g-1 justify-content-center">
                     <div class="col-6">
-                        <input type="number" class="form-control" placeholder="Deporte" aria-label="deporte">
+                        <input type="number" class="form-control" placeholder="Deporte" name="deporte">
                     </div>
                 </div>
             </div>
@@ -86,7 +94,7 @@
                 <h2>Lenta</h2>
                 <div class="row p-1 g-1 justify-content-center">
                     <div class="col-6">
-                        <input type="number" class="form-control" placeholder="Lenta" aria-label="lenta">
+                        <input type="number" class="form-control" placeholder="Lenta" name="lenta">
                     </div>
                 </div>
             </div>
@@ -99,21 +107,21 @@
     <div class="row justify-content-center p-3 g-2">
     <!-- Agrupar cada radio con su formulario -->
     <div>
-        <input type="radio" id="hiperglucemia" name="glucosaEstado">Hiperglucemia</input>
+    <input type="radio" id="hiperglucemia" name="glucosaEstado" value="hiperglucemia">Hiperglucemia</input>
         <div id="hiperForm" class="p-2 bg-light border rounded">
             <h3>Hiperglucemia</h3>
-            <input type="number" class="form-control mt-2" placeholder="Glucosa medida">
-            <input type="time" class="form-control" placeholder="Hora">
-            <input type="number" class="form-control mt-2" placeholder="Correción">
+            <input type="number" class="form-control mt-2" placeholder="Glucosa medida" name="glucosaMedida" required>
+            <input type="time" class="form-control" placeholder="Hora" name="hora" required>
+            <input type="number" class="form-control mt-2" placeholder="Correción" name="correccion" required>
         </div>
     </div>
 
     <div>
-        <input type="radio" id="hipoglucemia" name="glucosaEstado">Hipoglucemia</input>
+    <input type="radio" id="hipoglucemia" name="glucosaEstado" value="hipoglucemia">Hipoglucemia</input>
         <div id="hipoForm" class="p-2 bg-light border rounded">
             <h3>Hipoglucemia</h3>
-            <input type="number" class="form-control" placeholder="Glucosa">
-            <input type="time" class="form-control mt-2" placeholder="Hora"> 
+            <input type="number" class="form-control" placeholder="Glucosa" name="glucosa" required>
+            <input type="time" class="form-control mt-2" placeholder="Hora" name="hora" required>
         </div>
     </div>
     <div class="text-center mt-3">
@@ -124,14 +132,16 @@
         <!-- Botones -->
         <div class="row p-3">
             <div class="col-12">
-                <div class="d-flex justify-content-between">  
-                    <button type="submit" class="btn btn-success btn-lg mx-1">Añadir</button>  
-                    <button type="submit" class="btn btn-danger btn-lg mx-1" onclick="window.location.href='menu.php'">Volver al menú</button>  
-                    <button type="submit" class="btn btn-primary btn-lg mx-1">Ver Registros</button>  
-                </div>
+            <div class="d-flex justify-content-between">
+    <button type="submit" class="btn btn-success btn-lg mx-1">Añadir</button>
+    <button type="button" class="btn btn-danger btn-lg mx-1" onclick="window.location.href='menu.php'">Volver al menú</button>
+    <button type="button" class="btn btn-primary btn-lg mx-1" onclick="window.location.href='ver_registros.php'">Ver Registros</button>
+</div>
+
             </div>
         </div>
     </div>
+</form>
 </div>
 
     

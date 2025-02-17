@@ -7,22 +7,6 @@
     <link rel="icon" type="image/x-icon" href="../img/diabetes.png">
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
     <title>Nuevo Registro</title>
-    <style>
-/* Ocultar ambos formularios por defecto */
-#hiperForm, #hipoForm {
-    display: none;
-}
-
-/* Mostrar el formulario de Hiperglucemia cuando se selecciona su radio */
-#hiperglucemia:checked ~ #hiperForm {
-    display: block;
-}
-
-/* Mostrar el formulario de Hipoglucemia cuando se selecciona su radio */
-#hipoglucemia:checked ~ #hipoForm {
-    display: block;
-}
-</style>
 </head>
 <body>
     <div class="fullscreen-bg d-flex flex-column align-items-center justify-content-center vh-100"> 
@@ -95,6 +79,17 @@
                     </div>
                 </div>
             </div>
+       
+
+         <!-- Deporte -->
+         <div class="col-12 p-2">
+                <h2>Lenta</h2>
+                <div class="row p-1 g-1 justify-content-center">
+                    <div class="col-6">
+                        <input type="number" class="form-control" placeholder="Lenta" aria-label="lenta">
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="col-md-6 col-lg-4 p-2 bg-light rounded shadow  mt-3">
@@ -107,8 +102,9 @@
         <input type="radio" id="hiperglucemia" name="glucosaEstado">Hiperglucemia</input>
         <div id="hiperForm" class="p-2 bg-light border rounded">
             <h3>Hiperglucemia</h3>
-            <input type="text" class="form-control" placeholder="Tratamiento aplicado">
             <input type="number" class="form-control mt-2" placeholder="Glucosa medida">
+            <input type="time" class="form-control" placeholder="Hora">
+            <input type="number" class="form-control mt-2" placeholder="Correción">
         </div>
     </div>
 
@@ -116,12 +112,15 @@
         <input type="radio" id="hipoglucemia" name="glucosaEstado">Hipoglucemia</input>
         <div id="hipoForm" class="p-2 bg-light border rounded">
             <h3>Hipoglucemia</h3>
-            <input type="text" class="form-control" placeholder="Alimento ingerido">
-            <input type="number" class="form-control mt-2" placeholder="Tiempo de recuperación">
+            <input type="number" class="form-control" placeholder="Glucosa">
+            <input type="time" class="form-control mt-2" placeholder="Hora"> 
         </div>
     </div>
+    <div class="text-center mt-3">
+    <button type="button" class="btn btn-warning" onclick="resetGlucosaEstado()">Desmarcar</button>
 </div>
 </div>
+
         <!-- Botones -->
         <div class="row p-3">
             <div class="col-12">
@@ -133,5 +132,40 @@
             </div>
         </div>
     </div>
+</div>
+
+    
+    <script>
+    //!JavaScript para hacer funcionar los botnes de la hipo y la hiper
+document.addEventListener("DOMContentLoaded", function() {
+    let hiperglucemia = document.getElementById("hiperglucemia");
+    let hipoglucemia = document.getElementById("hipoglucemia");
+    let hiperForm = document.getElementById("hiperForm");
+    let hipoForm = document.getElementById("hipoForm");
+
+    function toggleForms() {
+        hiperForm.style.display = hiperglucemia.checked ? "block" : "none";
+        hipoForm.style.display = hipoglucemia.checked ? "block" : "none";
+    }
+
+    // Escuchar cambios en los radio buttons
+    hiperglucemia.addEventListener("change", toggleForms);
+    hipoglucemia.addEventListener("change", toggleForms);
+
+    // Llamar a la función por si uno está preseleccionado
+    toggleForms();
+});
+
+//!Botones para desmarcar el formulario
+function resetGlucosaEstado() {
+    // Desmarcar los radio buttons
+    document.getElementById("hiperglucemia").checked = false;
+    document.getElementById("hipoglucemia").checked = false;
+
+    // Ocultar los formularios
+    document.getElementById("hiperForm").style.display = "none";
+    document.getElementById("hipoForm").style.display = "none";
+}
+    </script>
 </body>
 </html>

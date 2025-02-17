@@ -1,5 +1,5 @@
 <?php
-require_once 'bbdd/conexion.php'; // Asegúrate de que este archivo conecta correctamente
+require_once 'conexion.php'; // Asegúrate de que este archivo conecta correctamente
 
 session_start(); // Iniciar sesión
 
@@ -34,16 +34,16 @@ exit; */
             $_SESSION["id_usu"] = $row["id_usu"]; // Guardamos el identificador del usuario
 
             // Redirigir al menú
-            header("Location: paginas/menu.php");
+            header("Location: ../paginas/menu.php");
             exit;
         } else {
             $_SESSION["error_message"] = "Usuario o contraseña incorrectos.";
-            header("Location: login.php");
+            header("Location: ../login.php");
             exit;
         }
     } else {
         $_SESSION["error_message"] = "incorrectos.";
-        header("Location: login.php");
+        header("Location: ../login.php");
         exit;
     }
 

@@ -1,3 +1,16 @@
+<?php
+require_once '../bbdd/conexion.php'; 
+
+session_start();
+
+// Si el usuario no ha iniciado sesión, redirigirlo
+if (!isset($_SESSION["id_usu"])) {
+    header("Location: login.php");
+    exit();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +31,7 @@
         </div>
 
         <div class="col-md-6 col-lg-4 p-4 bg-light rounded shadow text-center">
-            <h1 class="text-black mb-4">Bienvenido! <!-- Nombre de la persona(php) --></h1>
+            <h1 class="text-black mb-4">Bienvenid@, <?php echo htmlspecialchars($_SESSION["nombre"]); ?>!</h1>
 
             <div class="row g-3">
                 <div class="col-12">

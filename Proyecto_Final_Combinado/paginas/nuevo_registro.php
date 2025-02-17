@@ -127,7 +127,7 @@
             <div class="col-12">
                 <div class="d-flex justify-content-between">  
                     <button type="submit" class="btn btn-success btn-lg mx-1">Añadir</button>  
-                    <button type="submit" class="btn btn-danger btn-lg mx-1">Volver al menú</button>  
+                    <button type="submit" class="btn btn-danger btn-lg mx-1" onclick="window.location.href='menu.php'">Volver al menú</button>  
                     <button type="submit" class="btn btn-primary btn-lg mx-1">Ver Registros</button>  
                 </div>
             </div>

@@ -25,6 +25,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $passwordHashDB = $row["contra"]; // Contraseña hasheada almacenada en la BD
 
         // Verificar la contraseña ingresada con el hash almacenado
+   /*      var_dump($clave);
+var_dump($passwordHashDB);
+exit; */
         if (password_verify($clave, $passwordHashDB)) {
             // Si coinciden, iniciamos la sesión
             $_SESSION["usuario"] = $usuario;

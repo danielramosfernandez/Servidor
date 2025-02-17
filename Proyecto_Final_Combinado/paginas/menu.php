@@ -23,13 +23,27 @@
             <div class="row g-3">
                 <div class="col-12">
                     <div class="form-floating d-grid mx-autox">
-                        <button type="submit" class="btn btn-secondary btn-lg" onclick="window.location.href='paginas/registro.html'">Nuevo Registro</button>
+                        <button type="submit" class="btn btn-secondary btn-lg" onclick="window.location.href='nuevo_registro.php'">Nuevo Registro</button>
                     </div>
                 </div>
-
+                <div class="col-12">
+                    <div class="form-floating d-grid mx-auto">
+                        <button type="submit" class="btn btn-secondary btn-lg">Modificar Registros</button>  
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating d-grid mx-auto">
+                        <button type="submit" class="btn btn-secondary btn-lg">Eliminar Registros</button>  
+                    </div>
+                </div>
                 <div class="col-12">
                     <div class="form-floating d-grid mx-auto">
                         <button type="submit" class="btn btn-secondary btn-lg">Ver Registros</button>  
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating d-grid mx-autox">
+                        <button type="submit" class="btn btn-secondary btn-lg">Revisar estadísticas</button>
                     </div>
                 </div>
             </div>

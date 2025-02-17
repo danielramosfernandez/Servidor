@@ -56,7 +56,7 @@
                         </div>
                         <div class="col-12 p-3">
                             <button type="submit" class="btn btn-secondary">Registrarse</button>
-                            <button type="button" class="btn btn-danger" onclick="window.location.href='../index.php'">Volver al inicio</button>
+                            <button type="button" class="btn btn-danger" onclick="window.location.href='../login.php'">Volver al inicio</button>
                         </div>
                     </div>
                 </form>

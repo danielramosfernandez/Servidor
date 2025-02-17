@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "El nombre de usuario ya está en uso. Intenta con otro.";
     } else {
         //*Este hash se encarga de encriptar la contraseña
-        $passwordHash = password_hash($password, PASSWORD_BCRYPT);
+        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
         //*Aqui insertamos los datos del usuario en la base de datos
         $query = "INSERT INTO usuario (nombre, apellidos, usuario, contra, fecha_nacimiento) 

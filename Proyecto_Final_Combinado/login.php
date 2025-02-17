@@ -23,7 +23,7 @@ unset($_SESSION['error_message']); // Borrar el mensaje después de mostrarlo
             <h1 class="text-black mb-4">Inicio De Sesión</h1> 
             
             <!-- Formulario de inicio de sesión -->
-            <form action="bbdd/procesar_login.php" method="POST">
+            <form action="procesar_login.php" method="POST">
                 <div class="row g-3">
                     <div class="col-12">
                         <div class="form-floating">

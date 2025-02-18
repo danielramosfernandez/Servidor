@@ -32,6 +32,7 @@ exit; */
             // Si coinciden, iniciamos la sesión
             $_SESSION["usuario"] = $usuario;
             $_SESSION["id_usu"] = $row["id_usu"]; // Guardamos el identificador del usuario
+            $_SESSION["nombre"] = $row["nombre"];
 
             // Redirigir al menú
             header("Location: ../paginas/menu.php");

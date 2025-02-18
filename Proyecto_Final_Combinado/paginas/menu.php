@@ -36,7 +36,12 @@ if (!isset($_SESSION["id_usu"])) {
             <div class="row g-3">
                 <div class="col-12">
                     <div class="form-floating d-grid mx-autox">
-                        <button type="submit" class="btn btn-secondary btn-lg" onclick="window.location.href='nuevo_registro.php'">Nuevo Registro</button>
+                        <button type="submit" class="btn btn-secondary btn-lg" onclick="window.location.href='registro_control.php'">Nuevo Registro de control</button>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating d-grid mx-autox">
+                        <button type="submit" class="btn btn-secondary btn-lg" onclick="window.location.href='nuevo_registro.php'">Nuevo Registro de comida</button>
                     </div>
                 </div>
                 <div class="col-12">
@@ -46,7 +51,7 @@ if (!isset($_SESSION["id_usu"])) {
                 </div>
                 <div class="col-12">
                     <div class="form-floating d-grid mx-auto">
-                        <button type="submit" class="btn btn-secondary btn-lg">Eliminar Registros</button>  
+                        <button type="submit" class="btn btn-secondary btn-lg" onclick="window.location.href='eliminar.php'">Eliminar Registros</button>  
                     </div>
                 </div>
                 <div class="col-12">
@@ -59,6 +64,7 @@ if (!isset($_SESSION["id_usu"])) {
                         <button type="submit" class="btn btn-secondary btn-lg">Revisar estadísticas</button>
                     </div>
                 </div>
+                
             </div>
 
         </div>

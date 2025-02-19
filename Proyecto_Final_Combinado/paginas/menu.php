@@ -45,6 +45,11 @@ if (!isset($_SESSION["id_usu"])) {
                     </div>
                 </div>
                 <div class="col-12">
+                    <div class="form-floating d-grid mx-autox">
+                        <button type="submit" class="btn btn-secondary btn-lg" onclick="window.location.href='registro_glucemia.php'">Nuevo Registro de glucemia</button>
+                    </div>
+                </div>
+                <div class="col-12">
                     <div class="form-floating d-grid mx-auto">
                         <button type="submit" class="btn btn-secondary btn-lg" onclick="window.location.href='modificar_control.php'">Modificar Registros</button>  
                     </div>

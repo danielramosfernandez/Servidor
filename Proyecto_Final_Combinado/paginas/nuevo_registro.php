@@ -6,7 +6,32 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="icon" type="image/x-icon" href="../img/diabetes.png">
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
-    <title>Registro Comida</title>
+    <title>Registro de Glucemia y Comida</title>
+    <script>
+        // Función que se ejecuta al cambiar el radio button de glucemia
+        function toggleGlucemiaFields() {
+            var hiperglucemiaFields = document.getElementById("hiperglucemia-fields");
+            var hipoglucemiaFields = document.getElementById("hipoglucemia-fields");
+            var hiperglucemiaRadio = document.getElementById("hiperglucemia");
+            var hipoglucemiaRadio = document.getElementById("hipoglucemia");
+
+            if (hiperglucemiaRadio.checked) {
+                hiperglucemiaFields.style.display = "block";
+                hipoglucemiaFields.style.display = "none";
+            } else if (hipoglucemiaRadio.checked) {
+                hipoglucemiaFields.style.display = "block";
+                hiperglucemiaFields.style.display = "none";
+            } else {
+                hiperglucemiaFields.style.display = "none";
+                hipoglucemiaFields.style.display = "none";
+            }
+        }
+
+        // Llamar a la función para inicializar la visibilidad
+        window.onload = function() {
+            toggleGlucemiaFields(); // Al cargar la página, ajustamos la visibilidad según el radio seleccionado
+        }
+    </script>
 </head>
 <body>
     <div class="fullscreen-bg d-flex flex-column align-items-center justify-content-center vh-100">
@@ -15,8 +40,9 @@
         </div>
 
         <div class="col-md-6 col-lg-4 p-1 bg-light rounded shadow text-center">
-            <form action="../bbdd/insert_comida.php" method="POST" onsubmit="return validateForm()">
-                <h1 class="text-black mb-4">Registro Comida</h1>
+            <!-- Formulario combinado -->
+            <form action="../bbdd/insert_comida_y_glucemia.php" method="POST" onsubmit="return validateForm()">
+                <h1 class="text-black mb-4">Registro de Comida y Glucemia</h1>
 
                 <!-- Radio Buttons de Comida -->
                 <div class="row p-2 justify-content-center">
@@ -66,43 +92,37 @@
                 <div class="col-12 p-2">
                     <h2>Estado de glucemia</h2>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="glucemia" id="hiperglucemia" value="hiperglucemia" onclick="toggleInfo('hiperglucemia')">
+                        <input class="form-check-input" type="radio" name="glucemia" id="hiperglucemia" value="hiperglucemia" required onclick="toggleGlucemiaFields()">
                         <label class="form-check-label" for="hiperglucemia">Hiperglucemia</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="glucemia" id="hipoglucemia" value="hipoglucemia" onclick="toggleInfo('hipoglucemia')">
+                        <input class="form-check-input" type="radio" name="glucemia" id="hipoglucemia" value="hipoglucemia" required onclick="toggleGlucemiaFields()">
                         <label class="form-check-label" for="hipoglucemia">Hipoglucemia</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="glucemia" id="ninguno" value="ninguno" onclick="toggleInfo('ninguno')" checked>
+                        <input class="form-check-input" type="radio" name="glucemia" id="ninguno" value="ninguno" checked onclick="toggleGlucemiaFields()">
                         <label class="form-check-label" for="ninguno">Ninguno</label>
                     </div>
-                    <button type="button" class="btn btn-warning mt-2" onclick="deselect()">Deseleccionar</button>
                 </div>
 
-                <!-- Información desplegable -->
-                <div id="info" style="display:none;" class="alert alert-info mt-3"></div>
-
                 <!-- Campos para Hiperglucemia -->
-                <div id="hiperglucemia-fields" style="display:none;" class="p-2">
+                <div id="hiperglucemia-fields" class="p-2" style="display: none;">
                     <h2>Detalles de Hiperglucemia</h2>
-                    <input type="number" class="form-control mb-2" placeholder="Cantidad de glucosa" name="glucosa_hiperglucemia">
+                    <input type="number" class="form-control mb-2" placeholder="Cantidad de glucosa" name="glucosa_hiperglucemia" >
                     <input type="time" class="form-control mb-2" placeholder="Hora" name="hora_hiperglucemia">
-                    <input type="number" class="form-control mb-2" placeholder="Corrección" name="correccion_hiperglucemia">
+                    <input type="number" class="form-control mb-2" placeholder="Corrección" name="correccion_hiperglucemia" >
                 </div>
 
                 <!-- Campos para Hipoglucemia -->
-                <div id="hipoglucemia-fields" style="display:none;" class="p-2">
+                <div id="hipoglucemia-fields" class="p-2" style="display: none;">
                     <h2>Detalles de Hipoglucemia</h2>
-                    <input type="number" class="form-control mb-2" placeholder="Cantidad de glucosa" name="glucosa_hipoglucemia">
-                    <input type="time" class="form-control mb-2" placeholder="Hora" name="hora_hipoglucemia" >
+                    <input type="number" class="form-control mb-2" placeholder="Cantidad de glucosa" name="glucosa_hipoglucemia" >
+                    <input type="time" class="form-control mb-2" placeholder="Hora" name="hora_hipoglucemia">
                 </div>
 
-                <button type="submit" class="btn btn-primary mt-4">Registrar Comida</button>
+                <button type="submit" class="btn btn-primary mt-4">Registrar Comida y Glucemia</button>
             </form>
         </div>
     </div>
-
-    <script src="../js/funciones.js"></script>
 </body>
 </html>

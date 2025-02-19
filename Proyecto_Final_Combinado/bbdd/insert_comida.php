@@ -35,6 +35,32 @@ if (is_array($tipo_comida)) {
     $stmt_comida->execute();
 }
 
+// Obtener datos de hiperglucemia y hipoglucemia
+if (isset($_POST['glucemia']) && $_POST['glucemia'] === 'hiperglucemia') {
+    $glucosa_hiperglucemia = isset($_POST['glucosa_hiperglucemia']) ? $_POST['glucosa_hiperglucemia'] : null;
+    $hora_hiperglucemia = isset($_POST['hora_hiperglucemia']) ? $_POST['hora_hiperglucemia'] : null;
+    $correccion_hiperglucemia = isset($_POST['correccion_hiperglucemia']) ? $_POST['correccion_hiperglucemia'] : null;
+
+    // Preparar la consulta para HIPERGLUCEMIA
+    $sql_hiperglucemia = "INSERT INTO hiperglucemia (glucosa, hora, correccion, tipo_comida, fecha, id_usu) VALUES (?, ?, ?, ?, ?, ?)";
+    $stmt_hiperglucemia = $conn->prepare($sql_hiperglucemia);
+    $stmt_hiperglucemia->bind_param("isiisi", $glucosa_hiperglucemia, $hora_hiperglucemia, $correccion_hiperglucemia, $tipo_comida, $fecha, $id_usu);
+    $stmt_hiperglucemia->execute();
+    $stmt_hiperglucemia->close();
+}
+
+if (isset($_POST['glucemia']) && $_POST['glucemia'] === 'hipoglucemia') {
+    $glucosa_hipoglucemia = isset($_POST['glucosa_hipoglucemia']) ? $_POST['glucosa_hipoglucemia'] : null;
+    $hora_hipoglucemia = isset($_POST['hora_hipoglucemia']) ? $_POST['hora_hipoglucemia'] : null;
+
+    // Preparar la consulta para HIPOGLUCEMIA
+    $sql_hipoglucemia = "INSERT INTO hipoglucemia (glucosa, hora, tipo_comida, fecha, id_usu) VALUES (?, ?, ?, ?, ?)";
+    $stmt_hipoglucemia = $conn->prepare($sql_hipoglucemia);
+    $stmt_hipoglucemia->bind_param("isssi", $glucosa_hipoglucemia, $hora_hipoglucemia, $tipo_comida, $fecha, $id_usu);
+    $stmt_hipoglucemia->execute();
+    $stmt_hipoglucemia->close();
+}
+
 // Cerrar la declaración de comida
 $stmt_comida->close();
 $conn->close();

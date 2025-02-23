@@ -1,12 +1,12 @@
 <?php
 // Incluir archivo de conexión
 require 'conexion.php'; // Asegúrate de que la ruta sea correcta
-
+session_start();
 // Obtener datos del formulario
 $fecha = date('Y-m-d'); // Puedes cambiar esto si necesitas una fecha específica
 $deporte = $_POST['deporte'];
 $lenta = $_POST['lenta'];
-$id_usu = isset($_POST['id_usu']) ? $_POST['id_usu'] : 1; // Asegúrate de que este ID exista en la tabla usuario
+$id_usu = $_SESSION['id_usu']; // Asegúrate de que este ID exista en la tabla usuario
 
 // Insertar en CONTROL_GLUCOSA
 $sql_control = "INSERT INTO control_glucosa (fecha, deporte, lenta, id_usu) VALUES (?, ?, ?, ?)";

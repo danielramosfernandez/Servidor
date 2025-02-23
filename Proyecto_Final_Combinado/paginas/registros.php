@@ -31,35 +31,19 @@ if (!isset($_SESSION["id_usu"])) {
         </div>
 
         <div class="col-md-6 col-lg-4 p-4 bg-light rounded shadow text-center">
-            <h1 class="text-black mb-4">Bienvenid@, <?php echo htmlspecialchars($_SESSION["nombre"]); ?>!</h1>
+            <h1 class="text-black mb-4">Registros</h1>
 
             <div class="row g-3">
                 <div class="col-12">
                     <div class="form-floating d-grid mx-autox">
-                        <button type="submit" class="btn btn-secondary btn-lg" onclick="window.location.href='registros.php'">Nuevos Registros</button>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="form-floating d-grid mx-auto">
-                        <button type="submit" class="btn btn-secondary btn-lg" onclick="window.location.href='modificaciones.php'">Modificar Registros</button>  
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="form-floating d-grid mx-auto">
-                        <button type="submit" class="btn btn-secondary btn-lg" onclick="window.location.href='eliminaciones.php'">Eliminado de Registros</button>  
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="form-floating d-grid mx-auto">
-                        <button type="submit" class="btn btn-secondary btn-lg">Ver Registros</button>  
+                        <button type="submit" class="btn btn-secondary btn-lg" onclick="window.location.href='registro_control.php'">Nuevo Registro de control</button>
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="form-floating d-grid mx-autox">
-                        <button type="submit" class="btn btn-secondary btn-lg">Revisar estadísticas</button>
+                        <button type="submit" class="btn btn-secondary btn-lg" onclick="window.location.href='nuevo_registro.php'">Nuevo Registro de comida</button>
                     </div>
                 </div>
-                
             </div>
 
         </div>

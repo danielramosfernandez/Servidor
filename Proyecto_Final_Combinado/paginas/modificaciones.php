@@ -47,6 +47,13 @@ if (!isset($_SESSION["id_usu"])) {
                     </div>
                 </div>
         </div>
+        <div class="row g-3">
+                <div class="col-12">
+                    <div class="form-floating d-grid mx-autox">
+                        <button type="submit" class="btn btn-secondary btn-lg" onclick="window.location.href='comprobacion_glucemia.php'">Modificaciones de registros de glucemia</button>
+                    </div>
+                </div>
+        </div>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

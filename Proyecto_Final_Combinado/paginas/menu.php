@@ -59,7 +59,7 @@ if (!isset($_SESSION["id_usu"])) {
                         <button type="submit" class="btn btn-secondary btn-lg">Revisar estadísticas</button>
                     </div>
                 </div>
-                
+                <h5 class="text-danger">*En caso de error en algún proceso serás reenviado a este menú</h5>
             </div>
 
         </div>

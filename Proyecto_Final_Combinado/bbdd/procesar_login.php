@@ -1,49 +1,51 @@
 <?php
-require_once 'conexion.php'; // Asegúrate de que este archivo conecta correctamente
+require_once 'conexion.php'; 
 
-session_start(); // Iniciar sesión
+session_start(); 
 
+//^Comprobamos que el formulario fue rellenado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $usuario = trim($_POST["usuario"]); // Nombre de usuario ingresado
-    $clave = trim($_POST["clave"]); // Contraseña ingresada
+    $usuario = trim($_POST["usuario"]); 
+    $clave = trim($_POST["clave"]);
 
-    // Verificar si la conexión a la BD está activa
+  //^Se comprueba la conexión con la base de datos
     if (!$conn) {
         die("Error de conexión a la base de datos");
     }
 
-    // Realizamos la consulta para obtener la información del usuario
+    //^Se hace una Select para revisar los usuarios existentes en la 
+    //^base de datos
     $sql = "SELECT * FROM usuario WHERE usuario = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $usuario);
     $stmt->execute();
     $result = $stmt->get_result();
 
-    // Si el usuario existe, verificamos la contraseña
+    //^Si dentro de la base existe el usuario introducido se iniciara 
+    //^El proceso de inicio de sesión 
+    //^Sino saltará error
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        $passwordHashDB = $row["contra"]; // Contraseña hasheada almacenada en la BD
+        $passwordHashDB = $row["contra"]; //&Almacenamos la contraseña en un Hash
 
-        // Verificar la contraseña ingresada con el hash almacenado
-   /*      var_dump($clave);
-var_dump($passwordHashDB);
-exit; */
         if (password_verify($clave, $passwordHashDB)) {
-            // Si coinciden, iniciamos la sesión
+            //^Se compara la contraseña introducida en el inicio con la del hash del registro 
+            //^De nuevo en caso de no funcionar serás reenviado al menú (de momento)
             $_SESSION["usuario"] = $usuario;
-            $_SESSION["id_usu"] = $row["id_usu"]; // Guardamos el identificador del usuario
+            $_SESSION["id_usu"] = $row["id_usu"]; //&Vamos a guardar el usuario que será importante pará después
             $_SESSION["nombre"] = $row["nombre"];
 
-            // Redirigir al menú
+            //&Aqui vemos la dirección que se seguira en caso de estar todo correcto
             header("Location: ../paginas/menu.php");
             exit;
         } else {
+            //&Este es el código que lleva al error de usuarios y contraseñas
             $_SESSION["error_message"] = "Usuario o contraseña incorrectos.";
             header("Location: ../login.php");
             exit;
         }
     } else {
-        $_SESSION["error_message"] = "incorrectos.";
+        $_SESSION["error_message"] = "Usuario no existente.";
         header("Location: ../login.php");
         exit;
     }

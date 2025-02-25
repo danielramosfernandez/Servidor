@@ -36,27 +36,27 @@ if (!isset($_SESSION["id_usu"])) {
             <div class="row g-3">
                 <div class="col-12">
                     <div class="form-floating d-grid mx-autox">
-                        <button type="submit" class="btn btn-secondary btn-lg" onclick="window.location.href='registros.php'">Nuevos Registros</button>
+                        <button type="submit" class="btn btn-outline-primary btn-lg " onclick="window.location.href='registros.php'">Nuevos Registros</button>
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="form-floating d-grid mx-auto">
-                        <button type="submit" class="btn btn-secondary btn-lg" onclick="window.location.href='modificaciones.php'">Modificar Registros</button>  
+                        <button type="submit" class="btn btn-outline-primary btn-lg" onclick="window.location.href='modificaciones.php'">Modificar Registros</button>  
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="form-floating d-grid mx-auto">
-                        <button type="submit" class="btn btn-secondary btn-lg" onclick="window.location.href='eliminaciones.php'">Eliminado de Registros</button>  
+                        <button type="submit" class="btn btn-outline-primary btn-lg" onclick="window.location.href='eliminaciones.php'">Eliminado de Registros</button>  
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="form-floating d-grid mx-auto">
-                        <button type="submit" class="btn btn-secondary btn-lg">Ver Registros</button>  
+                        <button type="submit" class="btn btn-outline-primary btn-lg"  onclick="window.location.href='tabla.php'">Ver Registros</button>  
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="form-floating d-grid mx-autox">
-                        <button type="submit" class="btn btn-secondary btn-lg">Revisar estadísticas</button>
+                        <button type="submit" class="btn btn-outline-primary btn-lg">Revisar estadísticas</button>
                     </div>
                 </div>
                 <h5 class="text-danger">*En caso de error en algún proceso serás reenviado a este menú</h5>

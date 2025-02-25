@@ -1,4 +1,5 @@
 <?php
+//^Iniciamos la SESSION
     session_start();
 ?>
 
@@ -11,10 +12,14 @@
 </head>
 <body>
     <h1>Agenda</h1>
+    <!-- De nuevo recuperamos el nombre del usuario -->
     <h2>Hola <?php echo  $_SESSION['usu'];?></h2>
-    <form method="post" action="grabado.php">
+    <!-- Como el fomulario va a ser llevado a otra app la nombramos en la acción-->    
+     <form method="post" action="grabado.php">
+        <!-- Mostramos el formulario con un for que nos cuente el número  de veces que pulsamos INCREMENTAR -->
         <?php 
             for ($i=1;$i<=$_SESSION['contador']+1; $i++) {
+                //&La i se trata del número de veces que pulsamos incrementar
                 echo "<fieldset style='border: 4px double; display:inline;'><p>CONTACTO$i</p>";
                 echo<<<_END
                     <label for='nombre$i'>Nombre$i </label>

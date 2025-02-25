@@ -7,8 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    @extends('layouts.master') 
-    @section('content')Pantalla principal 
-    @stop 
+<h1>Lista de Productos</h1>
+
 </body>
 </html>

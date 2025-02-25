@@ -1,32 +1,13 @@
 <?php
-
-use Illuminate\Support\Facades\Route;
-Route::get('/', function () {
-    return view('catalog.index'); 
-});
-
-Route::get('/login', function () {
-    return view(); 
-});
-Route::get('/logout', function () {
-    return view(); 
-});
-Route::get('/catalog', function () {
-    return view(); 
-});
-
-Route::get('/catalog/show/{id}', function ($id) {
-    return view(show.blade.php); 
-});
-
-Route::get('/catalog/create', function () {
-    return view(create.blade.php); 
-});
-
-Route::get('catalog/edit/{id}', function ($id) {
-    return view(edit.blade.php). $id; 
-});
+use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\HomeController;
 
 
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
+
+Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog.index');
+Route::get('/catalog/show/{id}', [CatalogController::class, 'show'])->name('catalog.show');
+Route::get('/catalog/create', [CatalogController::class, 'create'])->name('catalog.create');
+Route::get('/catalog/edit/{id}', [CatalogController::class, 'edit'])->name('catalog.edit');
 

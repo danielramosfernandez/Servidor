@@ -6,7 +6,7 @@ if (isset($_POST['usu'])) {
     $usu = $_POST['usu'];
     $psw = $_POST['psw']; 
 
-    $connection = new mysqli($hn, $un, $pw, $db,3307);
+    $connection = new mysqli($hn, $un, $pw, $db);
     if ($connection->connect_error) die("Fatal Error");
     $query = "SELECT nombre,login,clave FROM jugador WHERE login = '$usu' AND clave = '$psw' ";
     $result = $connection->query($query);

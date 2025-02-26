@@ -1,7 +1,7 @@
 <?php
 
     require_once 'login.php';
-    $connection = new mysqli($hn, $un, $pw, $db,3307);
+    $connection = new mysqli($hn, $un, $pw, $db);
     if ($connection->connect_error) die("Fatal Error");
     $query = "SELECT nombre,puntos FROM jugador ";
     $result = $connection->query($query);

@@ -55,7 +55,8 @@
 </head>
 <body>
     <h1>AGENDA DE CONTACTOS</h1>
-<!--     Utilizamos el motodo post y ademas dejamos la almohadilla  -->
+<!--     Utilizamos el motodo post y ademas dejamos la almohadilla la almohadilla sirve para 
+         que el form actué sobre este archivo  -->
     <form action="#" method="post" >
         
         <label for="usu">Usuario:</label>

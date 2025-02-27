@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Ejecutar la consulta
             if ($stmt_update->execute()) {
                 if ($stmt_update->affected_rows > 0) {
-                    echo "Registro de glucemia actualizado correctamente.";
+                    header("Location:../paginas/exito.php");
                 } else {
                     echo "No se encontró el registro para actualizar.";
                 }

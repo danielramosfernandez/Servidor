@@ -38,6 +38,7 @@ if (isset($_POST["fecha"]) && isset($_POST["tipo_glucemia"])) {
         if ($success) {
             $_SESSION['message'] = 'Registro de glucemia eliminado con éxito.';
             $_SESSION['message_type'] = 'success';
+            header("Location:../paginas/exito.php");
         } else {
             $_SESSION['message'] = 'Error al eliminar el registro.';
             $_SESSION['message_type'] = 'danger';

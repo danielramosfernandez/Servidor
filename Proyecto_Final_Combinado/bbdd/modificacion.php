@@ -43,6 +43,7 @@ if (isset($_POST["deporte"]) && isset($_POST["lenta"])) {
             if ($stmt_update->execute()) {
                 $_SESSION['message'] = 'Control de glucosa actualizado correctamente';
                 $_SESSION['message_type'] = 'success';
+                header("Location:../paginas/exito.php");
             } else {
                 $_SESSION['message'] = 'Error al actualizar el control de glucosa. Verifica la fecha e ID.';
                 $_SESSION['message_type'] = 'danger';

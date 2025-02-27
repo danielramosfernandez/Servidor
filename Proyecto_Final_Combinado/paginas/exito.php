@@ -19,7 +19,7 @@ if (!isset($_SESSION["id_usu"])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="icon" type="image/x-icon" href="../img/diabetes.png">
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
-    <title>Menú Control Diabétes</title>
+    <title>Exito</title>
 </head>
 <body>
     <!-- Esto esta puesto para que la imagen se alinee verticalmente cobn el formulario -->
@@ -35,31 +35,14 @@ if (!isset($_SESSION["id_usu"])) {
 
             <div class="row g-3">
                 <div class="col-12">
-                    <div class="form-floating d-grid mx-autox">
-                        <button type="submit" class="btn btn-outline-primary btn-lg " onclick="window.location.href='registros.php'">Nuevos Registros</button>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="form-floating d-grid mx-auto">
-                        <button type="submit" class="btn btn-outline-primary btn-lg" onclick="window.location.href='modificaciones.php'">Modificar Registros</button>  
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="form-floating d-grid mx-auto">
-                        <button type="submit" class="btn btn-outline-primary btn-lg" onclick="window.location.href='eliminaciones.php'">Eliminado de Registros</button>  
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="form-floating d-grid mx-auto">
-                        <button type="submit" class="btn btn-outline-primary btn-lg"  onclick="window.location.href='tabla.php'">Ver Registros</button>  
-                    </div>
+                    <h5 class="text-danger">Proceso realizado de manera exitosa</h5>
                 </div>
                 <div class="col-12">
                     <div class="form-floating d-grid mx-autox">
-                        <button type="submit" class="btn btn-outline-primary btn-lg"  onclick="window.location.href='estadisticas.php'">Revisar estadísticas</button>
+                        <button type="submit" class="btn btn-outline-primary btn-lg"  onclick="window.location.href='menu.php'">Volver al menú</button>
                     </div>
                 </div>
-                <h5 class="text-danger">*En caso de error en algún proceso serás reenviado a este menú</h5>
+              
             </div>
 
         </div>

@@ -28,6 +28,7 @@ if (isset($_POST["fecha"]) && isset($_POST["comida"])) {
         if ($success) {
             $_SESSION['message'] = 'Registro eliminado con éxito.';
             $_SESSION['message_type'] = 'success';
+            header("Location:../paginas/exito.php");
         } else {
             $_SESSION['message'] = 'Error al eliminar el registro.';
             $_SESSION['message_type'] = 'danger';

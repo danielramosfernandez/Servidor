@@ -21,8 +21,7 @@ try {
         // Obtener el ID del último control glucosa insertado
         $id_control = $stmt_control->insert_id;
 
-        // Redirigir a la página de inserción de comida con el ID de control
-        header("Location: insert_comida.php?id_control=$id_control");
+        header("Location:../paginas/exito.php");
         exit();
     } else {
         throw new Exception("Error al insertar en control_glucosa.");

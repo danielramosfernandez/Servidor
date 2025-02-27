@@ -13,6 +13,7 @@ if (isset($_SESSION["id_usu"]) && isset($_POST["fecha"])) {
     if ($result) {
         $_SESSION['message'] = 'Control eliminado correctamente';
         $_SESSION['message_type'] = 'success';
+        header("Location:../paginas/exito.php");
     } else {
         $_SESSION['message'] = 'Error al eliminar: ' . mysqli_error($conn);
         $_SESSION['message_type'] = 'danger';

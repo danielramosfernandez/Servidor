@@ -46,7 +46,7 @@ if (isset($_POST["comida"], $_POST["glucosa1"], $_POST["glucosa2"], $_POST["raci
             if ($stmt_update->execute()) {
                 // Verificar si se actualizó el registro
                 if ($stmt_update->affected_rows > 0) {
-                    echo "Registro actualizado correctamente.";
+                    header("Location:../paginas/exito.php");
                 } else {
                     echo "No se encontró el registro para actualizar.";
                 }

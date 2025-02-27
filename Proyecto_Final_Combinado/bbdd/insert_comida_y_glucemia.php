@@ -47,7 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           
         }
 
-        echo "Comida y glucemia registrada correctamente.";
+        echo "Comida y glucemia registrada correctamente."; 
+        header("Location:../paginas/exito.php");
     } else {
         echo "Error al registrar la comida: " . mysqli_error($conn); 
     }

@@ -7,12 +7,12 @@ if (!isset($_SESSION["usuario"])) {
     exit;
 }
 
-// Depuración: Verificar los datos que llegan al script
+
 echo "<pre>";
 print_r($_POST);
 echo "</pre>";
 
-// Verificar si los datos del formulario están completos
+
 if (isset($_POST["comida"], $_POST["glucosa1"], $_POST["glucosa2"], $_POST["raciones"], $_POST["insulina"])) {
     $tipo_comida = $_POST["comida"];
     $gl_1h = $_POST["glucosa1"];
@@ -28,7 +28,6 @@ if (isset($_POST["comida"], $_POST["glucosa1"], $_POST["glucosa2"], $_POST["raci
         die("Error: Faltan datos en la sesión.");
     }
 
-    // Consulta SQL para actualizar el registro de comida
     $sql_update = "UPDATE comida 
     SET gl_1h = ?, 
         gl_2h = ?, 
@@ -40,11 +39,10 @@ if (isset($_POST["comida"], $_POST["glucosa1"], $_POST["glucosa2"], $_POST["raci
     if ($conn) {
         $stmt_update = $conn->prepare($sql_update);
         if ($stmt_update) {
-            // Vincular parámetros y ejecutar la consulta
+
             $stmt_update->bind_param("iiissssi", $gl_1h, $gl_2h, $raciones, $insulina, $tipo_comida, $fecha, $id_usu, $tipo_comida);
 
             if ($stmt_update->execute()) {
-                // Verificar si se actualizó el registro
                 if ($stmt_update->affected_rows > 0) {
                     header("Location:../paginas/exito.php");
                 } else {

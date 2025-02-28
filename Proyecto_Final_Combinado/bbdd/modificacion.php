@@ -1,20 +1,20 @@
 <?php
-require_once 'conexion.php'; // Include the DB connection
+require_once 'conexion.php'; 
 session_start();
 
-// Check if the user is logged in
+
 if (!isset($_SESSION["usuario"])) {
     header("Location: ../login.php");
     exit;
 }
 
-// Check if the required form data is submitted
+
 if (isset($_POST["deporte"]) && isset($_POST["lenta"])) {
-    // Get the form data
+
     $deporte = $_POST["deporte"];
     $lenta = $_POST["lenta"];
 
-    // Get 'fecha' and 'id_usu' from session
+
     if (isset($_SESSION["fecha"]) && isset($_SESSION["id_usu"])) {
         $fecha = $_SESSION["fecha"];
         $id_usu = $_SESSION["id_usu"];
@@ -25,10 +25,7 @@ if (isset($_POST["deporte"]) && isset($_POST["lenta"])) {
         exit();
     }
 
-    // Debugging output to ensure the data is being passed correctly
-    // echo "Deporte: $deporte, Lenta: $lenta, Fecha: $fecha, ID Usuario: $id_usu"; // Uncomment to debug
 
-    // SQL query to update the record
     $sql_update = "UPDATE control_glucosa 
                    SET deporte = ?, 
                        lenta = ? 
@@ -37,7 +34,7 @@ if (isset($_POST["deporte"]) && isset($_POST["lenta"])) {
     if ($conn) {
         $stmt_update = $conn->prepare($sql_update);
         if ($stmt_update) {
-            // Bind the parameters and execute the update query
+
             $stmt_update->bind_param("sssi", $deporte, $lenta, $fecha, $id_usu);
 
             if ($stmt_update->execute()) {
@@ -59,7 +56,7 @@ if (isset($_POST["deporte"]) && isset($_POST["lenta"])) {
         $_SESSION['message_type'] = 'danger';
     }
 
-    // Redirect to the menu or desired page
+   
     header('Location: ../paginas/menu.php');
     exit();
 } else {

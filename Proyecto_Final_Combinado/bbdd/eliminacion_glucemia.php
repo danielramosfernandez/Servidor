@@ -2,7 +2,7 @@
 require_once '../bbdd/conexion.php';
 session_start();
 
-// Verificar si el usuario está autenticado
+
 if (!isset($_SESSION["id_usu"])) {
     $_SESSION['message'] = 'No estás autenticado. Inicia sesión.';
     $_SESSION['message_type'] = 'danger';
@@ -10,13 +10,11 @@ if (!isset($_SESSION["id_usu"])) {
     exit();
 }
 
-// Verificar si los datos del formulario están presentes
 if (isset($_POST["fecha"]) && isset($_POST["tipo_glucemia"])) {
     $id = $_SESSION["id_usu"];
     $fecha = $_POST["fecha"];
-    $tipo_glucemia = $_POST["tipo_glucemia"]; // Puede ser "hiperglucemia" o "hipoglucemia"
+    $tipo_glucemia = $_POST["tipo_glucemia"]; 
 
-    // Determinar la columna a eliminar según el tipo de glucemia
     if ($tipo_glucemia === "hiperglucemia") {
         $sql = "DELETE FROM hiperglucemia WHERE id_usu = ? AND fecha = ?";
     } elseif ($tipo_glucemia === "hipoglucemia") {
@@ -28,7 +26,7 @@ if (isset($_POST["fecha"]) && isset($_POST["tipo_glucemia"])) {
         exit();
     }
 
-    // Preparar y ejecutar la consulta
+
     $stmt = mysqli_prepare($conn, $sql);
     if ($stmt) {
         mysqli_stmt_bind_param($stmt, "is", $id, $fecha);
@@ -52,7 +50,7 @@ if (isset($_POST["fecha"]) && isset($_POST["tipo_glucemia"])) {
     $_SESSION['message_type'] = 'warning';
 }
 
-// Redirigir de vuelta al menú
+
 header("Location: ../menu.php");
 exit();
 ?>

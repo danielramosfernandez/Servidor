@@ -33,7 +33,7 @@ mysqli_close($conn);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estadísticas de Glucosa</title>
 
-    <!-- Bootstrap CSS -->
+   
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="icon" type="image/x-icon" href="../img/diabetes.png">
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
@@ -57,7 +57,6 @@ mysqli_close($conn);
         </div>
     </div>
 
-    <!-- Script del gráfico -->
     <script>
         const ctx = document.getElementById('glucosaChart').getContext('2d');
         const glucosaChart = new Chart(ctx, {
@@ -92,7 +91,7 @@ mysqli_close($conn);
         });
     </script>
 
-    <!-- Bootstrap JS -->
+   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

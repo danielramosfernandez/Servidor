@@ -3,7 +3,7 @@ require_once '../bbdd/conexion.php';
 
 session_start();
 
-// Si el usuario no ha iniciado sesión, redirigirlo
+
 if (!isset($_SESSION["id_usu"])) {
     header("Location: login.php");
     exit();
@@ -39,7 +39,7 @@ $result = $stmt->get_result();
 <body>
     <div class="fullscreen-bg d-flex flex-column align-items-center justify-content-center vh-100">
     <div class="d-flex justify-content-center">
-            <!-- Puse la imagen al 50% por ciento de tamaño -->
+           
             <img class="w-25 mb-3" src="../img/diabetes.png" alt="Logo diabetes">
         </div>
 
@@ -85,7 +85,7 @@ $result = $stmt->get_result();
         </table>
     </div>
 
-    <!-- Botón centrado -->
+ 
     <div class="w-100 d-flex justify-content-center mt-3">
         <button type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='menu.php'">Volver al menú</button>
     </div>

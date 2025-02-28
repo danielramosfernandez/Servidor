@@ -6,7 +6,6 @@ if (isset($_SESSION["id_usu"]) && isset($_POST["fecha"])) {
     $id = $_SESSION["id_usu"];
     $fecha = $_POST["fecha"];
 
-    // Asegurar que la fecha esté entre comillas
     $sql = "DELETE FROM control_glucosa WHERE id_usu=$id AND fecha='$fecha'";
     $result = mysqli_query($conn, $sql);
 

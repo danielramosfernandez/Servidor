@@ -18,7 +18,7 @@
         <form action="../bbdd/eliminado.php" method="POST">
           <h1 class="text-black mb-4">Eliminar Registro de Control</h1>
 
-          <!-- Fecha del control -->
+     
           <div class="col-12 p-2">
             <h2>Fecha del control</h2>
             <input type="date" class="form-control" name="fecha" required>

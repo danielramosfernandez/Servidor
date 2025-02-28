@@ -43,49 +43,53 @@ $result = $stmt->get_result();
             <img class="w-25 mb-3" src="../img/diabetes.png" alt="Logo diabetes">
         </div>
 
-        <div class="container mt-5">
-            <h2 class="text-center mb-4 text-white">Registro de <?php echo htmlspecialchars($_SESSION["nombre"]); ?></h2>
-            <div class="table-responsive rounded ">
-                <table class="table table-bordered text-center bg-light ">
-                <thead class="table-dark ">
+        <div class="container mt-3">
+    <div class="table-responsive rounded">
+        <table class="table table-bordered text-center bg-light">
+            <thead class="table-dark">
+                <tr>
+                    <th>Fecha</th>
+                    <th>Deporte</th>
+                    <th>Insulina Lenta</th>
+                    <th>Comida</th>
+                    <th>GL/1H</th>
+                    <th>GL/2H</th>
+                    <th>Raciones</th>
+                    <th>Insulina</th>
+                    <th>Glucosa durante la hipoglucemia</th>
+                    <th>Hora de la hipoglucemia</th>
+                    <th>Glucosa durante la hiperglucemia</th>
+                    <th>Hora de la hiperglucemia</th>
+                    <th>Corrección</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php while ($row = $result->fetch_assoc()) { ?>
                     <tr>
-                        <th>Fecha</th>
-                        <th>Deporte</th>
-                        <th>Insulina Lenta</th>
-                        <th>Comida</th>
-                        <th>GL/1H</th>
-                        <th>GL/2H</th>
-                        <th>Raciones</th>
-                        <th>Insulina</th>
-                        <th>Glucosa durante la hipoglucemia</th>
-                        <th>Hora de la hipoglucemia</th>
-                        <th>Glucosa durante la hiperglucemia</th>
-                        <th>Hora de la hiperglucemia</th>
-                        <th>Corrección</th>
+                        <td><?php echo htmlspecialchars($row['fecha']); ?></td>
+                        <td><?php echo htmlspecialchars($row['deporte']); ?></td>
+                        <td><?php echo htmlspecialchars($row['lenta']); ?></td>
+                        <td><?php echo htmlspecialchars($row['tipo_comida']); ?></td>
+                        <td><?php echo htmlspecialchars($row['gl_1h']); ?></td>
+                        <td><?php echo htmlspecialchars($row['gl_2h']); ?></td>
+                        <td><?php echo htmlspecialchars($row['raciones']); ?></td>
+                        <td><?php echo htmlspecialchars($row['insulina']); ?></td>
+                        <td><?php echo htmlspecialchars($row['hipo_glu']); ?></td>
+                        <td><?php echo htmlspecialchars($row['hipo_hora']); ?></td>
+                        <td><?php echo htmlspecialchars($row['hiper_glu']); ?></td>
+                        <td><?php echo htmlspecialchars($row['hiper_hora']); ?></td>
+                        <td><?php echo htmlspecialchars($row['correccion']); ?></td>
                     </tr>
-                </thead>
-                <tbody>
-                    <?php while ($row = $result->fetch_assoc()) { ?>
-                        <tr>
-                            <td><?php echo htmlspecialchars($row['fecha']); ?></td>
-                            <td><?php echo htmlspecialchars($row['deporte']); ?></td>
-                            <td><?php echo htmlspecialchars($row['lenta']); ?></td>
-                            <td><?php echo htmlspecialchars($row['tipo_comida']); ?></td>
-                            <td><?php echo htmlspecialchars($row['gl_1h']); ?></td>
-                            <td><?php echo htmlspecialchars($row['gl_2h']); ?></td>
-                            <td><?php echo htmlspecialchars($row['raciones']); ?></td>
-                            <td><?php echo htmlspecialchars($row['insulina']); ?></td>
-                            <td><?php echo htmlspecialchars($row['hipo_glu']); ?></td>
-                            <td><?php echo htmlspecialchars($row['hipo_hora']); ?></td>
-                            <td><?php echo htmlspecialchars($row['hiper_glu']); ?></td>
-                            <td><?php echo htmlspecialchars($row['hiper_hora']); ?></td>
-                            <td><?php echo htmlspecialchars($row['correccion']); ?></td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
-        </div>
+                <?php } ?>
+            </tbody>
+        </table>
     </div>
+
+    <!-- Botón centrado -->
+    <div class="w-100 d-flex justify-content-center mt-3">
+        <button type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='menu.php'">Volver al menú</button>
+    </div>
+</div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

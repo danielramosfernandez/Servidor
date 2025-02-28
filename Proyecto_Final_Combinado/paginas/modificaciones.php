@@ -30,7 +30,7 @@ if (!isset($_SESSION["id_usu"])) {
             <img class="w-25 mb-3" src="../img/diabetes.png" alt="Logo diabetes">
         </div>
 
-        <div class="col-md-6 col-lg-4 p-4 bg-light rounded shadow text-center">
+       <div class="col-md-6 col-lg-4 p-4 bg-light rounded shadow text-center">
             <h1 class="text-black mb-4">Registros</h1>
 
             <div class="row g-3">
@@ -39,18 +39,24 @@ if (!isset($_SESSION["id_usu"])) {
                         <button type="submit" class="btn btn-secondary btn-lg" onclick="window.location.href='modificar_control.php'">Modificaciones de registros</button>
                     </div>
                 </div>
-        </div>
-        <div class="row g-3">
+        
+    
                 <div class="col-12">
                     <div class="form-floating d-grid mx-autox">
                         <button type="submit" class="btn btn-secondary btn-lg" onclick="window.location.href='comprobacion_comida.php'">Modificaciones de registros de comidas</button>
                     </div>
                 </div>
-        </div>
-        <div class="row g-3">
+      
+        
                 <div class="col-12">
                     <div class="form-floating d-grid mx-autox">
                         <button type="submit" class="btn btn-secondary btn-lg" onclick="window.location.href='comprobacion_glucemia.php'">Modificaciones de registros de glucemia</button>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="form-floating d-grid mx-autox">
+                        <button type="submit" class="btn btn-secondary btn-lg" onclick="window.location.href='menu.php'">Volver al menú</button>
                     </div>
                 </div>
         </div>

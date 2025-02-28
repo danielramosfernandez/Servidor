@@ -19,7 +19,7 @@ if (!isset($_SESSION["id_usu"])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="icon" type="image/x-icon" href="../img/diabetes.png">
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
-    <title>Menú Control Diabétes</title>
+    <title>Exito</title>
 </head>
 <body>
     <!-- Esto esta puesto para que la imagen se alinee verticalmente cobn el formulario -->
@@ -31,24 +31,18 @@ if (!isset($_SESSION["id_usu"])) {
         </div>
 
         <div class="col-md-6 col-lg-4 p-4 bg-light rounded shadow text-center">
-            <h1 class="text-black mb-4">Registros</h1>
+            <h1 class="text-danger mb-4">Error</h1>
 
             <div class="row g-3">
                 <div class="col-12">
-                    <div class="form-floating d-grid mx-autox">
-                        <button type="submit" class="btn btn-secondary btn-lg" onclick="window.location.href='registro_control.php'">Nuevo Registro de control</button>
-                    </div>
+                    <h5 class="text-black">Para el correcto funcionamiento, introduzca primero un nuevo registro de control </h5>
                 </div>
                 <div class="col-12">
                     <div class="form-floating d-grid mx-autox">
-                        <button type="submit" class="btn btn-secondary btn-lg" onclick="window.location.href='nuevo_registro.php'">Nuevo Registro de comida</button>
+                        <button type="submit" class="btn btn-outline-primary btn-lg"  onclick="window.location.href='menu.php'">Volver al menú</button>
                     </div>
                 </div>
-                <div class="col-12">
-                    <div class="form-floating d-grid mx-autox">
-                        <button type="submit" class="btn btn-secondary btn-lg" onclick="window.location.href='menu.php'">Volver al menú</button>
-                    </div>
-                </div>
+              
             </div>
 
         </div>

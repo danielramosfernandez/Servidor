@@ -39,18 +39,24 @@ if (!isset($_SESSION["id_usu"])) {
                         <button type="submit" class="btn btn-secondary btn-lg" onclick="window.location.href='eliminar.php'">Eliminar registro de control</button>
                     </div>
                 </div>
-            </div>
-            <div class="row g-3">
+        
+            
                 <div class="col-12">
                     <div class="form-floating d-grid mx-autox">
                         <button type="submit" class="btn btn-secondary btn-lg" onclick="window.location.href='eliminar_comida.php'">Eliminar registro de comida</button>
                     </div>
                 </div>
-            </div>
-            <div class="row g-3">
+            
+          
                 <div class="col-12">
                     <div class="form-floating d-grid mx-autox">
                         <button type="submit" class="btn btn-secondary btn-lg" onclick="window.location.href='eliminar_glucemia.php'">Eliminar registro de hipoglucemia e hiperglucemia</button>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="form-floating d-grid mx-autox">
+                        <button type="submit" class="btn btn-secondary btn-lg" onclick="window.location.href='menu.php'">Volver al menú</button>
                     </div>
                 </div>
             </div>

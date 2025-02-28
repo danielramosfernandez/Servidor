@@ -31,11 +31,11 @@ if (!isset($_SESSION["id_usu"])) {
         </div>
 
         <div class="col-md-6 col-lg-4 p-4 bg-light rounded shadow text-center">
-            <h1 class="text-black mb-4">Bienvenid@, <?php echo htmlspecialchars($_SESSION["nombre"]); ?>!</h1>
+            <h1 class="text-succes mb-4">Exito</h1>
 
             <div class="row g-3">
                 <div class="col-12">
-                    <h5 class="text-danger">Proceso realizado de manera exitosa</h5>
+                    <h5 class="text-black">Proceso realizado de manera exitosa</h5>
                 </div>
                 <div class="col-12">
                     <div class="form-floating d-grid mx-autox">

@@ -18,12 +18,13 @@
             <form action="../bbdd/comprobar_glucemia.php" method="POST">
                 <h1 class="text-black mb-4">Modificar Registro de Glucemia</h1>
 
-
+                <!-- Selección de fecha -->
                 <div class="col-12 p-2">
                     <h2>Fecha</h2>
                     <input type="date" class="form-control" name="fecha" required>
                 </div>
 
+                <!-- Selección de tipo de glucemia -->
                 <div class="col-12 p-2">
                     <h2>Estado de glucemia</h2>
                     <div class="form-check">
@@ -45,10 +46,7 @@
                     <p>¿Estás seguro de que deseas modificar este registro de glucemia?</p>
                 </div>
 
-                <div class="row p-3 col-12 d-flex justify-content-between">
-                    <button type="button" class="btn btn-danger" onclick="window.location.href='menu.php'">Volver al menú</button>
-                    <button type="button" class="btn btn-primary" onclick="window.location.href='ver_registros.php'">Ver Registros</button>
-                </div>
+           
 
                 <button type="submit" class="btn btn-warning btn-lg mx-1">Modificar</button>
             </form>

@@ -1,7 +1,7 @@
 <?php
-session_start();
+session_start(); // Iniciar sesión
 $error_message = isset($_SESSION['error_message']) ? $_SESSION['error_message'] : "";
-unset($_SESSION['error_message']); 
+unset($_SESSION['error_message']); // Borrar el mensaje después de mostrarlo
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +22,7 @@ unset($_SESSION['error_message']);
         <div class="col-md-6 col-lg-4 p-4 bg-light rounded shadow text-center">
             <h1 class="text-black mb-4">Inicio De Sesión</h1> 
             
-       
+            <!-- Formulario de inicio de sesión -->
             <form action="bbdd/procesar_login.php" method="POST">
                 <div class="row g-3">
                     <div class="col-12">
@@ -44,6 +44,7 @@ unset($_SESSION['error_message']);
                 </div>
             </form>
 
+            <!-- Mensaje de error -->
             <?php if (!empty($error_message)): ?>
                 <p class="text-danger mt-3"><?php echo $error_message; ?></p>
             <?php endif; ?>

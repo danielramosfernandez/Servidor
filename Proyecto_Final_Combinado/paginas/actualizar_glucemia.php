@@ -55,14 +55,14 @@
 
                 <div id="hiperglucemia-fields" class="p-2" style="display: none;">
                     <h2>Detalles de Hiperglucemia</h2>
-                    <input type="number" class="form-control mb-2" placeholder="Cantidad de glucosa" name="glucosa_hiperglucemia">
+                    <input type="number" class="form-control mb-2" placeholder="Cantidad de glucosa" name="glucosa_hiperglucemia" min="90" max="200">
                     <input type="time" class="form-control mb-2" placeholder="Hora" name="hora_hiperglucemia">
-                    <input type="number" class="form-control mb-2" placeholder="Corrección" name="correccion_hiperglucemia">
+                    <input type="number" class="form-control mb-2" placeholder="Corrección" name="correccion_hiperglucemia" min="90" max="200">
                 </div>
 
                 <div id="hipoglucemia-fields" class="p-2" style="display: none;">
                     <h2>Detalles de Hipoglucemia</h2>
-                    <input type="number" class="form-control mb-2" placeholder="Cantidad de glucosa" name="glucosa_hipoglucemia">
+                    <input type="number" class="form-control mb-2" placeholder="Cantidad de glucosa" name="glucosa_hipoglucemia"min="90" max="200">
                     <input type="time" class="form-control mb-2" placeholder="Hora" name="hora_hipoglucemia">
                 </div>
 

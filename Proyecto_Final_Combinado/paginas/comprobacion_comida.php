@@ -18,12 +18,13 @@
         <form action="../bbdd/comida_modificado.php" method="POST">
           <h1 class="text-black mb-4">Modificar Registro de Comida</h1>
 
-
+          <!-- Selección de fecha -->
           <div class="col-12 p-2">
             <h2>Fecha</h2>
             <input type="date" class="form-control" name="fecha" required>
           </div>
 
+          <!-- Selección de comida -->
           <div class="row p-2 justify-content-center">
             <h2>Comida</h2>
             <div class="col-2">
@@ -63,11 +64,6 @@
             <p>¿Estás seguro de que deseas modificar este registro de comida?</p>
           </div>
 
-          <div class="row p-3 col-12 d-flex justify-content-between">
-            <button type="button" class="btn btn-danger" onclick="window.location.href='menu.php'">Volver al menú</button>
-            <button type="button" class="btn btn-primary" onclick="window.location.href='ver_registros.php'">Ver Registros</button>
-          </div>
-
           <button type="submit" class="btn btn-warning btn-lg mx-1">Modificar</button>
         </form>
       </div>
@@ -78,6 +74,6 @@
 session_start();
 if (!isset($_SESSION["usuario"])) {
     header("Location: ../login.php");
-    exit;
+    exit();
 }
 ?>

@@ -18,10 +18,10 @@
         <form action="../bbdd/eliminado.php" method="POST">
           <h1 class="text-black mb-4">Eliminar Registro de Control</h1>
 
-     
+          <!-- Fecha del control -->
           <div class="col-12 p-2">
             <h2>Fecha del control</h2>
-            <input type="date" class="form-control" name="fecha" required>
+            <input type="date" class="form-control" name="fecha" max="<?php echo date('Y-m-d'); ?>" required>
           </div>
 
           <div class="col-12 p-2">
@@ -29,10 +29,6 @@
             <p>¿Estás seguro de que deseas eliminar este registro de control?</p>
           </div>
 
-          <div class="row p-3 col-12 d-flex justify-content-between">
-            <button type="button" class="btn btn-danger btn" onclick="window.location.href='menu.php'">Volver al menú</button>
-            <button type="button" class="btn btn-primary btn" onclick="window.location.href='ver_registros.php'">Ver Registros</button>
-          </div>
 
           <button type="submit" class="btn btn-warning btn-lg mx-1">Eliminar</button>
         </form>

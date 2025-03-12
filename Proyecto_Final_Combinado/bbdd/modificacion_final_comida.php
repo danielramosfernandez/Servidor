@@ -1,20 +1,21 @@
 <?php
+ob_start(); // Inicia el búfer de salida
+
 require_once 'conexion.php'; // Include the DB connection
 session_start();
 
 if (!isset($_SESSION["usuario"])) {
-    header("Location: ../login.php");
+    header("Location: ../index.php");
     exit;
 }
 
+// Depuración: Verificar los datos que llegan al script
+// echo "<pre>";
+// print_r($_POST);
+// echo "</pre>";
 
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";
-
-
-if (isset($_POST["comida"], $_POST["glucosa1"], $_POST["glucosa2"], $_POST["raciones"], $_POST["insulina"])) {
-    $tipo_comida = $_POST["comida"];
+// Verificar si los datos del formulario están completos
+if (isset($_POST["glucosa1"], $_POST["glucosa2"], $_POST["raciones"], $_POST["insulina"])) {
     $gl_1h = $_POST["glucosa1"];
     $gl_2h = $_POST["glucosa2"];
     $raciones = $_POST["raciones"];
@@ -28,23 +29,28 @@ if (isset($_POST["comida"], $_POST["glucosa1"], $_POST["glucosa2"], $_POST["raci
         die("Error: Faltan datos en la sesión.");
     }
 
+    // Asumimos que el tipo de comida es fijo, por ejemplo "cena", no lo recibimos del formulario
+    $tipo_comida = 'cena'; // Cambiar a la comida fija que desees
+
+    // Consulta SQL para actualizar el registro de comida
     $sql_update = "UPDATE comida 
     SET gl_1h = ?, 
         gl_2h = ?, 
         raciones = ?, 
-        insulina = ?, 
-        tipo_comida = ? 
+        insulina = ? 
     WHERE fecha = ? AND id_usu = ? AND tipo_comida = ?";
 
     if ($conn) {
         $stmt_update = $conn->prepare($sql_update);
         if ($stmt_update) {
-
-            $stmt_update->bind_param("iiissssi", $gl_1h, $gl_2h, $raciones, $insulina, $tipo_comida, $fecha, $id_usu, $tipo_comida);
+            // Vincular parámetros y ejecutar la consulta
+            $stmt_update->bind_param("iiissss", $gl_1h, $gl_2h, $raciones, $insulina, $fecha, $id_usu, $tipo_comida);
 
             if ($stmt_update->execute()) {
+                // Verificar si se actualizó el registro
                 if ($stmt_update->affected_rows > 0) {
                     header("Location:../paginas/exito.php");
+                    exit();
                 } else {
                     echo "No se encontró el registro para actualizar.";
                 }
@@ -62,4 +68,6 @@ if (isset($_POST["comida"], $_POST["glucosa1"], $_POST["glucosa2"], $_POST["raci
 } else {
     die("Error: Faltan datos en el formulario.");
 }
+
+ob_end_flush(); // Envía el contenido del búfer al navegador
 ?>

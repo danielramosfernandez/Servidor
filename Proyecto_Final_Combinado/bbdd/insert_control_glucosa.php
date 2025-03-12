@@ -1,12 +1,21 @@
 <?php
-
-require 'conexion.php'; 
+// Incluir archivo de conexión
+require 'conexion.php';
 session_start();
 
-$fecha = date('Y-m-d'); 
+// Obtener datos del formulario
+$fecha = isset($_POST['fecha']) ? $_POST['fecha'] : date('Y-m-d'); // Usar la fecha enviada o la actual
+$deporte = $_POST['deporte'];
 $lenta = $_POST['lenta'];
-$id_usu = $_SESSION['id_usu'];
+$id_usu = $_SESSION['id_usu']; // Asegurar que este ID exista en la tabla usuario
 
+// Validar que la fecha no sea futura
+$fecha_actual = date('Y-m-d');
+if ($fecha > $fecha_actual) {
+    die("Error: No puedes seleccionar una fecha futura.");
+}
+
+// Insertar en CONTROL_GLUCOSA
 $sql_control = "INSERT INTO control_glucosa (fecha, deporte, lenta, id_usu) VALUES (?, ?, ?, ?)";
 $stmt_control = $conn->prepare($sql_control);
 
@@ -14,11 +23,8 @@ try {
     $stmt_control->bind_param("ssii", $fecha, $deporte, $lenta, $id_usu);
     $stmt_control->execute();
 
-
     if ($stmt_control->affected_rows > 0) {
-        
-        $id_control = $stmt_control->insert_id;
-
+        // Redirigir a la página de éxito
         header("Location:../paginas/exito.php");
         exit();
     } else {
@@ -28,6 +34,8 @@ try {
     echo "Error: " . $e->getMessage();
 }
 
+// Cerrar conexiones
 $stmt_control->close();
 $conn->close();
+
 ?>

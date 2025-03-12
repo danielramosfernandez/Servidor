@@ -15,51 +15,17 @@
         </div>
 
         <div class="col-md-6 col-lg-4 p-1 bg-light rounded shadow text-center">
-            
+            <!-- Formulario de actualización de comida -->
             <form action="../bbdd/modificacion_final_comida.php" method="POST">
                 <h1 class="text-black mb-4">Actualizar Registro de Comida</h1>
-                
-    
-                <div class="row p-2 justify-content-center">
-                    <h2>Comida</h2>
-                    <div class="col-2">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="comida" id="desayuno" value="desayuno" required>
-                            <label class="form-check-label" for="desayuno">Desayuno</label>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="comida" id="almuerzo" value="almuerzo" required>
-                            <label class="form-check-label" for="almuerzo">Almuerzo</label>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="comida" id="comida" value="comida" required>
-                            <label class="form-check-label" for="comida">Comida</label>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="comida" id="merienda" value="merienda" required>
-                            <label class="form-check-label" for="merienda">Merienda</label>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="comida" id="cena" value="cena" required>
-                            <label class="form-check-label" for="cena">Cena</label>
-                        </div>
-                    </div>
-                </div>
 
+                <!-- Datos de Glucosa e Insulina -->
                 <div class="col-12 p-2">
                     <h2>Datos de Glucosa e Insulina</h2>
-                    <input type="number" class="form-control" placeholder="Glucosa 1h antes" name="glucosa1" required>
+                    <input type="number" class="form-control" placeholder="Glucosa 1h antes" name="glucosa1" min="90" max="200" required>
                     <input type="number" class="form-control mt-2" placeholder="Glucosa 2h después" name="glucosa2" required>
-                    <input type="number" class="form-control mt-2" placeholder="Insulina aplicada" name="insulina" required>
-                    <input type="number" class="form-control mt-2" placeholder="Raciones consumidas" name="raciones" required>
+                    <input type="number" class="form-control mt-2" placeholder="Insulina aplicada" name="insulina" min="1" max="10" required>
+                    <input type="number" class="form-control mt-2" placeholder="Raciones consumidas" name="raciones" min="1" max="5" required>
                 </div>
 
                 <button type="submit" class="btn btn-warning mt-4">Actualizar Comida</button>
@@ -68,3 +34,4 @@
     </div>
 </body>
 </html>
+

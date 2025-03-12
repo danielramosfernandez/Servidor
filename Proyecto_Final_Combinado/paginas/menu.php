@@ -10,7 +10,6 @@ if (!isset($_SESSION["id_usu"])) {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,50 +21,37 @@ if (!isset($_SESSION["id_usu"])) {
     <title>Menú Control Diabétes</title>
 </head>
 <body>
-
     <div class="fullscreen-bg d-flex flex-column align-items-center justify-content-center vh-100"> 
-
         <div class="d-flex justify-content-center">
-           
             <img class="w-25 mb-3" src="../img/diabetes.png" alt="Logo diabetes">
         </div>
 
         <div class="col-md-6 col-lg-4 p-4 bg-light rounded shadow text-center">
             <h1 class="text-black mb-4">Bienvenid@, <?php echo htmlspecialchars($_SESSION["nombre"]); ?>!</h1>
-
             <div class="row g-3">
                 <div class="col-12">
-                    <div class="form-floating d-grid mx-autox">
-                        <button type="submit" class="btn btn-outline-primary btn-lg " onclick="window.location.href='registros.php'">Nuevos Registros</button>
-                    </div>
+                    <button class="btn btn-outline-primary btn-lg w-100" onclick="window.location.href='registros.php'">Nuevos Registros</button>
                 </div>
                 <div class="col-12">
-                    <div class="form-floating d-grid mx-auto">
-                        <button type="submit" class="btn btn-outline-primary btn-lg" onclick="window.location.href='modificaciones.php'">Modificar Registros</button>  
-                    </div>
+                    <button class="btn btn-outline-primary btn-lg w-100" onclick="window.location.href='modificaciones.php'">Modificar Registros</button>
                 </div>
                 <div class="col-12">
-                    <div class="form-floating d-grid mx-auto">
-                        <button type="submit" class="btn btn-outline-primary btn-lg" onclick="window.location.href='eliminaciones.php'">Eliminado de Registros</button>  
-                    </div>
+                    <button class="btn btn-outline-primary btn-lg w-100" onclick="window.location.href='eliminaciones.php'">Eliminado de Registros</button>
                 </div>
                 <div class="col-12">
-                    <div class="form-floating d-grid mx-auto">
-                        <button type="submit" class="btn btn-outline-primary btn-lg"  onclick="window.location.href='tabla.php'">Ver Registros</button>  
-                    </div>
+                    <button class="btn btn-outline-primary btn-lg w-100" onclick="window.location.href='tabla.php'">Ver Registros</button>
                 </div>
                 <div class="col-12">
-                    <div class="form-floating d-grid mx-autox">
-                        <button type="submit" class="btn btn-outline-primary btn-lg"  onclick="window.location.href='estadisticas.php'">Revisar estadísticas</button>
-                    </div>
+                    <button class="btn btn-outline-primary btn-lg w-100" onclick="window.location.href='estadisticas.php'">Revisar estadísticas</button>
                 </div>
-                <h5 class="text-danger">*En caso de error en algún proceso serás reenviado a este menú</h5>
+                <div class="col-12">
+                    <button class="btn btn-danger btn-lg w-100" onclick="window.location.href='logout.php'">Cerrar Sesión</button>
+                </div>
             </div>
-
+            <h5 class="text-danger mt-3">*En caso de error en algún proceso serás reenviado a este menú</h5>
         </div>
     </div>
     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-

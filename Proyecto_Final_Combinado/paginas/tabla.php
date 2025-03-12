@@ -3,7 +3,7 @@ require_once '../bbdd/conexion.php';
 
 session_start();
 
-
+// Si el usuario no ha iniciado sesión, redirigirlo
 if (!isset($_SESSION["id_usu"])) {
     header("Location: login.php");
     exit();
@@ -39,7 +39,7 @@ $result = $stmt->get_result();
 <body>
     <div class="fullscreen-bg d-flex flex-column align-items-center justify-content-center vh-100">
     <div class="d-flex justify-content-center">
-           
+            <!-- Puse la imagen al 50% por ciento de tamaño -->
             <img class="w-25 mb-3" src="../img/diabetes.png" alt="Logo diabetes">
         </div>
 
@@ -66,26 +66,26 @@ $result = $stmt->get_result();
             <tbody>
                 <?php while ($row = $result->fetch_assoc()) { ?>
                     <tr>
-                        <td><?php echo htmlspecialchars($row['fecha']); ?></td>
-                        <td><?php echo htmlspecialchars($row['deporte']); ?></td>
-                        <td><?php echo htmlspecialchars($row['lenta']); ?></td>
-                        <td><?php echo htmlspecialchars($row['tipo_comida']); ?></td>
-                        <td><?php echo htmlspecialchars($row['gl_1h']); ?></td>
-                        <td><?php echo htmlspecialchars($row['gl_2h']); ?></td>
-                        <td><?php echo htmlspecialchars($row['raciones']); ?></td>
-                        <td><?php echo htmlspecialchars($row['insulina']); ?></td>
-                        <td><?php echo htmlspecialchars($row['hipo_glu']); ?></td>
-                        <td><?php echo htmlspecialchars($row['hipo_hora']); ?></td>
-                        <td><?php echo htmlspecialchars($row['hiper_glu']); ?></td>
-                        <td><?php echo htmlspecialchars($row['hiper_hora']); ?></td>
-                        <td><?php echo htmlspecialchars($row['correccion']); ?></td>
+                        <td><?php echo htmlspecialchars($row['fecha'] ?? ''); ?></td>
+						<td><?php echo htmlspecialchars($row['deporte'] ?? ''); ?></td>
+						<td><?php echo htmlspecialchars($row['lenta'] ?? ''); ?></td>
+						<td><?php echo htmlspecialchars($row['tipo_comida'] ?? ''); ?></td>
+						<td><?php echo htmlspecialchars($row['gl_1h'] ?? ''); ?></td>
+						<td><?php echo htmlspecialchars($row['gl_2h'] ?? ''); ?></td>
+						<td><?php echo htmlspecialchars($row['raciones'] ?? ''); ?></td>
+						<td><?php echo htmlspecialchars($row['insulina'] ?? ''); ?></td>
+						<td><?php echo htmlspecialchars($row['hipo_glu'] ?? ''); ?></td>
+						<td><?php echo htmlspecialchars($row['hipo_hora'] ?? ''); ?></td>
+						<td><?php echo htmlspecialchars($row['hiper_glu'] ?? ''); ?></td>
+						<td><?php echo htmlspecialchars($row['hiper_hora'] ?? ''); ?></td>
+						<td><?php echo htmlspecialchars($row['correccion'] ?? ''); ?></td>
                     </tr>
                 <?php } ?>
             </tbody>
         </table>
     </div>
 
- 
+    <!-- Botón centrado -->
     <div class="w-100 d-flex justify-content-center mt-3">
         <button type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='menu.php'">Volver al menú</button>
     </div>

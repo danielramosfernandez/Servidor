@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require_once 'conexion.php'; // Conexión a la base de datos
+require_once 'conexion.php';
 session_start();
 
 if (!isset($_SESSION["usuario"])) {
@@ -20,39 +20,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             die("Error: Faltan datos en la sesión.");
         }
 
-        // Variables para los datos de hiperglucemia o hipoglucemia
         $glucosa = null;
         $hora = null;
         $correccion = null;
 
-        // Comprobamos el tipo de glucemia y los datos correspondientes
+    
         if ($tipo_glucemia === "hiperglucemia" && isset($_POST["glucosa_hiperglucemia"], $_POST["hora_hiperglucemia"], $_POST["correccion_hiperglucemia"])) {
             $glucosa = $_POST["glucosa_hiperglucemia"];
             $hora = $_POST["hora_hiperglucemia"];
             $correccion = $_POST["correccion_hiperglucemia"];
-            $tabla = "hiperglucemia"; // Tabla para hiperglucemia
+            $tabla = "hiperglucemia"; 
         } elseif ($tipo_glucemia === "hipoglucemia" && isset($_POST["glucosa_hipoglucemia"], $_POST["hora_hipoglucemia"])) {
             $glucosa = $_POST["glucosa_hipoglucemia"];
             $hora = $_POST["hora_hipoglucemia"];
-            $correccion = null; // No se usa corrección para hipoglucemia
-            $tabla = "hipoglucemia"; // Tabla para hipoglucemia
+            $correccion = null; 
+            $tabla = "hipoglucemia";
         } else {
             die("Error: Datos incompletos en el formulario.");
         }
-
-        // Consulta SQL para actualizar el registro de glucemia
         if ($tabla === "hiperglucemia") {
             $sql_update = "UPDATE hiperglucemia SET glucosa = ?, hora = ?, correccion = ? WHERE fecha = ? AND id_usu = ?";
             $stmt_update = $conn->prepare($sql_update);
             $stmt_update->bind_param("sssss", $glucosa, $hora, $correccion, $fecha, $id_usu);
-        } else { // hipoglucemia
+        } else { 
             $sql_update = "UPDATE hipoglucemia SET glucosa = ?, hora = ? WHERE fecha = ? AND id_usu = ?";
             $stmt_update = $conn->prepare($sql_update);
             $stmt_update->bind_param("ssss", $glucosa, $hora, $fecha, $id_usu);
         }
 
         if ($stmt_update) {
-            // Ejecutar la consulta
+           
             if ($stmt_update->execute()) {
                 if ($stmt_update->affected_rows > 0) {
                     header("Location:../paginas/exito.php");

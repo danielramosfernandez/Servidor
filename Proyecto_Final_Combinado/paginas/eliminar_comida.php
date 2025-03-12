@@ -18,13 +18,12 @@
             <form action="../bbdd/eliminacion_comida.php" method="POST">
                 <h1 class="text-black mb-4">Eliminar Registro</h1>
 
-                <!-- Fecha del registro -->
                 <div class="col-12 p-2">
                     <h2>Fecha del registro</h2>
                     <input type="date" class="form-control" name="fecha" max="<?php echo date('Y-m-d'); ?>" required>
                 </div>
 
-                <!-- Tipo de comida -->
+        
                 <div class="col-12 p-2">
                     <h2>Tipo de comida</h2>
                     <select class="form-control" name="comida" required>

@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
     <title>Registro de Glucemia y Comida</title>
     <script>
-        // Función que se ejecuta al cambiar el radio button de glucemia
+
         function toggleGlucemiaFields() {
             var hiperglucemiaFields = document.getElementById("hiperglucemia-fields");
             var hipoglucemiaFields = document.getElementById("hipoglucemia-fields");
@@ -27,9 +27,9 @@
             }
         }
 
-        // Llamar a la función para inicializar la visibilidad
+    
         window.onload = function() {
-            toggleGlucemiaFields(); // Al cargar la página, ajustamos la visibilidad según el radio seleccionado
+            toggleGlucemiaFields(); 
         }
     </script>
 </head>
@@ -40,18 +40,17 @@
         </div>
 
         <div class="col-md-6 col-lg-4 p-1 bg-light rounded shadow text-center">
-            <!-- Formulario combinado -->
+    
             <form action="../bbdd/insert_comida_y_glucemia.php" method="POST" onsubmit="return validateForm()">
                 <h1 class="text-black mb-4">Registro de Comida y Glucemia</h1>
 
-                <!-- Campo para seleccionar la fecha -->
                 <div class="col-12 p-2">
                     <h2>Fecha</h2>
                      <input type="date" class="form-control" name="fecha" required max="<?php echo date('Y-m-d'); ?>">
 </div>
                
 
-                <!-- Radio Buttons de Comida -->
+
                 <div class="row p-2 justify-content-center">
                     <h2>Comida</h2>
                     <div class="col-2">
@@ -86,7 +85,7 @@
                     </div>
                 </div>
 
-                <!-- Cantidad de glucosa -->
+           
                 <div class="col-12 p-2">
                     <h2>Cantidad de glucosa</h2>
                     <input type="number" class="form-control" placeholder="Glucosa 1h antes" name="glucosa1" min="90" max="200" required>
@@ -95,7 +94,7 @@
                     <input type="number" class="form-control mt-2" placeholder="Raciones consumidas" name="raciones" min="1" max="5" required>
                 </div>
 
-                <!-- Radio Buttons de Glucemia -->
+         
                 <div class="col-12 p-2">
                     <h2>Estado de glucemia</h2>
                     <div class="form-check">
@@ -112,7 +111,7 @@
                     </div>
                 </div>
 
-                <!-- Campos para Hiperglucemia -->
+              
                 <div id="hiperglucemia-fields" class="p-2" style="display: none;">
                     <h2>Detalles de Hiperglucemia</h2>
                     <input type="number" class="form-control mb-2" placeholder="Cantidad de glucosa" name="glucosa_hiperglucemia" min="90" max="200" >
@@ -120,7 +119,7 @@
                     <input type="number" class="form-control mb-2" placeholder="Corrección" name="correccion_hiperglucemia" min="1" max="5" >
                 </div>
 
-                <!-- Campos para Hipoglucemia -->
+  
                 <div id="hipoglucemia-fields" class="p-2" style="display: none;">
                     <h2>Detalles de Hipoglucemia</h2>
                     <input type="number" class="form-control mb-2" placeholder="Cantidad de glucosa" name="glucosa_hipoglucemia" min="90" max="200" >

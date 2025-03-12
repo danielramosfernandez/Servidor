@@ -3,7 +3,7 @@ require_once '../bbdd/conexion.php';
 
 session_start();
 
-// Si el usuario no ha iniciado sesión, redirigirlo
+
 if (!isset($_SESSION["id_usu"])) {
     header("Location: login.php");
     exit();
@@ -22,11 +22,11 @@ if (!isset($_SESSION["id_usu"])) {
     <title>Exito</title>
 </head>
 <body>
-    <!-- Esto esta puesto para que la imagen se alinee verticalmente cobn el formulario -->
+ 
     <div class="fullscreen-bg d-flex flex-column align-items-center justify-content-center vh-100"> 
 
         <div class="d-flex justify-content-center">
-            <!-- Puse la imagen al 50% por ciento de tamaño -->
+         
             <img class="w-25 mb-3" src="../img/diabetes.png" alt="Logo diabetes">
         </div>
 

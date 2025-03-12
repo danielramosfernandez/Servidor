@@ -18,13 +18,12 @@
             <form action="../bbdd/eliminacion_glucemia.php" method="POST">
                 <h1 class="text-black mb-4">Eliminar Registro de Glucemia</h1>
 
-                <!-- Selección de fecha -->
+           
                 <div class="mb-3">
                     <h2>Fecha del registro</h2>
                     <input type="date" class="form-control" name="fecha" max="<?php echo date('Y-m-d'); ?>" required>
                 </div>
 
-                <!-- Selección del tipo de glucemia -->
                 <div class="mb-3">
                     <h2>Tipo de registro a eliminar</h2>
                     <div class="form-check">
@@ -37,7 +36,7 @@
                     </div>
                 </div>
 
-                <!-- Mensaje de confirmación -->
+              
                 <div class="mb-3">
                     <h2>Confirmación</h2>
                     <p>¿Estás seguro de que deseas eliminar este registro?</p>

@@ -15,11 +15,10 @@
         </div>
 
         <div class="col-md-6 col-lg-4 p-1 bg-light rounded shadow text-center">
-            <!-- Formulario de actualización de comida -->
+
             <form action="../bbdd/modificacion_final_comida.php" method="POST">
                 <h1 class="text-black mb-4">Actualizar Registro de Comida</h1>
 
-                <!-- Datos de Glucosa e Insulina -->
                 <div class="col-12 p-2">
                     <h2>Datos de Glucosa e Insulina</h2>
                     <input type="number" class="form-control" placeholder="Glucosa 1h antes" name="glucosa1" min="90" max="200" required>

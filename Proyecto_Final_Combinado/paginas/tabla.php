@@ -39,7 +39,7 @@ $result = $stmt->get_result();
 <body>
     <div class="fullscreen-bg d-flex flex-column align-items-center justify-content-center vh-100">
     <div class="d-flex justify-content-center">
-            <!-- Puse la imagen al 50% por ciento de tamaño -->
+            
             <img class="w-25 mb-3" src="../img/diabetes.png" alt="Logo diabetes">
         </div>
 

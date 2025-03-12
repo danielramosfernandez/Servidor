@@ -1,21 +1,20 @@
 <?php
 include '../bbdd/conexion.php'; 
 
-// Obtener el mes y año desde los parámetros de la URL o usar los valores por defecto (este mes y año)
+
 $mes = isset($_GET['mes']) ? $_GET['mes'] : date('m');
 $anio = isset($_GET['anio']) ? $_GET['anio'] : date('Y');
 
-// Validar que la fecha seleccionada no sea en el futuro
+
 $currentYear = date('Y');
 $currentMonth = date('m');
 
 if (($anio > $currentYear) || ($anio == $currentYear && $mes > $currentMonth)) {
-    // Redirigir a la página actual con los valores válidos
+
     header("Location: {$_SERVER['PHP_SELF']}?mes=$currentMonth&anio=$currentYear");
     exit();
 }
 
-// Consultar los datos para el mes y año seleccionados
 $query = "SELECT 
             MONTH(hipo.fecha) AS mes,
             COUNT(DISTINCT CASE WHEN hipo.glucosa IS NOT NULL THEN hipo.fecha END) AS total_hipoglucemias,
@@ -49,7 +48,7 @@ mysqli_close($conn);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estadísticas de Glucosa</title>
 
-    <!-- Bootstrap CSS -->
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="icon" type="image/x-icon" href="../img/diabetes.png">
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
@@ -64,8 +63,6 @@ mysqli_close($conn);
 
         <div class="col-md-6 col-lg-5 p-4 bg-light rounded shadow text-center">
             <h1 class="text-primary mb-4">Estadísticas de Glucosa</h1>
-
-            <!-- Formulario para seleccionar mes y año -->
             <form method="GET" action="">
                 <div class="d-flex justify-content-between mb-4">
                     <select name="mes" class="form-select w-50">
@@ -100,7 +97,7 @@ mysqli_close($conn);
         </div>
     </div>
 
-    <!-- Script del gráfico -->
+ 
     <script>
         const ctx = document.getElementById('glucosaChart').getContext('2d');
         const glucosaChart = new Chart(ctx, {
@@ -135,7 +132,7 @@ mysqli_close($conn);
         });
     </script>
 
-    <!-- Bootstrap JS -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

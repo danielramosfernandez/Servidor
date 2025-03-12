@@ -15,17 +15,15 @@
         </div>
 
         <div class="col-md-6 col-lg-4 p-1 bg-light rounded shadow text-center">
-            <!-- Assuming this is the form for modifying the control record -->
             <form action="../bbdd/modificacion.php" method="POST">
                 <h1>Modificar Control</h1>
 
-                <!-- Deporte Input -->
                 <div class="col-12 p-2">
                     <label for="deporte">Deporte</label>
                     <input type="text" class="form-control" name="deporte" min="1" max="5" required>
                 </div>
 
-                <!-- Lenta Input -->
+
                 <div class="col-12 p-2">
                     <label for="lenta">Lenta</label>
                     <input type="text" class="form-control" name="lenta" min="1" max="50" required>
@@ -37,11 +35,10 @@
 
                 </div>   
                  
-                <!-- Hidden Inputs for fecha and id_usu -->
                 <input type="hidden" name="fecha" value="<?php echo $_SESSION['fecha']; ?>">
                 <input type="hidden" name="id_usu" value="<?php echo $_SESSION['id_usu']; ?>">
 
-                <!-- Confirmation -->
+
                 <p>¿Estás seguro de que deseas modificar este registro de control?</p>
 
                 <button type="submit" class="btn btn-warning btn-lg mx-1">Modificar</button>

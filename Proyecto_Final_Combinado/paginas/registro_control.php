@@ -18,13 +18,13 @@
             <form action="../bbdd/insert_control_glucosa.php" method="POST">
                 <h1 class="text-black mb-4">Registro Control Glucosa</h1>
 
-                <!-- Deporte -->
+
                 <div class="col-12 p-2">
                     <h2>Deporte</h2>
                     <input type="number" class="form-control" placeholder="Deporte" name="deporte" min="1" max="5" required>
                 </div>
 
-                <!-- Lenta -->
+
                 <div class="col-12 p-2">
                     <h2>Lenta</h2>
                     <input type="number" class="form-control" placeholder="Lenta" name="lenta" min="1" max="5" required>

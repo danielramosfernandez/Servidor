@@ -18,13 +18,11 @@
         <form action="../bbdd/comida_modificado.php" method="POST">
           <h1 class="text-black mb-4">Modificar Registro de Comida</h1>
 
-          <!-- Selección de fecha -->
+     
           <div class="col-12 p-2">
             <h2>Fecha</h2>
             <input type="date" class="form-control" name="fecha" required>
           </div>
-
-          <!-- Selección de comida -->
           <div class="row p-2 justify-content-center">
             <h2>Comida</h2>
             <div class="col-2">

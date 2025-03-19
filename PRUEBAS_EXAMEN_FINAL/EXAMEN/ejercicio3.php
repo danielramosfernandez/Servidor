@@ -35,9 +35,12 @@ $count = 0;
         <label for="id" class="form-label">Persona:</label>
         <select name="id" id="id" class="form-select" required>
             <?php
+            //&Recorremos filas para mostrar el nombre de la persona dentro del select
             for ($i = 0; $i < $result->num_rows; $i++) {
                 $row = $result->fetch_assoc();
+                //&Almacenamos el nombre
                 $nombre = $row['nombre'];
+                //&Almacenamos el id
                 $id = $row['idpersona'];
 
                 echo "<option value='" . $id . "'>" . $nombre . "</option>";
@@ -51,6 +54,7 @@ $count = 0;
     
             
     <?php
+    //&Comprobamos  que la fecha y el id del usuario fueron introducidos
 if (isset($_POST['fecha'])) {
     $fecha = $_POST["fecha"];
     $idUsu = $_POST["id"];
@@ -58,33 +62,35 @@ if (isset($_POST['fecha'])) {
     echo "<table border='5px'>";
     echo "<tr>";
     
-    // Crear la consulta
+    //&Creamos la consulta donde comprobaremos la agenda dentro de agenda donde haya el id y la fecha que introducimos
     $stmtAg= $conn->prepare("SELECT * FROM agenda WHERE  idpersona = ? AND fecha = ?");
     $stmtAg->bind_param("is",$idUsu, $fecha);
-    // Ejecutar la consulta
+    //&Ejecutar la consulta
     $stmtAg->execute();
     $resultAg = $stmtAg->get_result();
     
-
+    //&Se almacenan todos los datos de los usuarios.
     for ($i = 0; $i < $resultAg->num_rows; $i++) {
         $agenda = $resultAg->fetch_assoc();
-    // Crear la consulta
+        
+    //& Se crea la consulta
     $stmtImg = $conn->prepare("SELECT * FROM imagenes WHERE idimagen = ?");
     $stmtImg->bind_param("i",$agenda['idimagen']);
 
-    // Ejecutar la consulta
+    //&Ejecutamos la consulta
     $stmtImg->execute();
     $resultImg = $stmtImg->get_result();
     $imagen = $resultImg->fetch_assoc();
     $img = $imagen['imagen'];
     $idimg = $imagen['idimagen'];
     echo "<td>";
-    
+    //&Muestra una vez hecha la consulta la agenda de los usuarios
     echo "<img style='display: flex;' width='100px' src='" . $img . "'>";
     echo "<span>" . $img . "</span>";
     echo "<span> " . $agenda['hora'] . "</span>";
     echo "</td>";
     if ($count < 1) {
+        //&Tinen que mostrar con un máximo de dos imagenes por fila
         $count++;
     } else {
         $count = 0;

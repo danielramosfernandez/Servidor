@@ -1,35 +1,36 @@
 <?php
 require_once "conexion.php";
-// Crear la conexión
+//&Crear la conexión
 $conn = new mysqli($servidor, $usuario, $password, $db);
 
-// Verificar conexión
+//&Verificar conexión
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
-// Crear la consulta
+//&Crear la consulta, este sirve para el desplegable de personas dado que tenemos q mostrar sus nombres
 $stmt = $conn->prepare("SELECT * FROM personas");
 
-// Ejecutar la consulta
+//&Ejecutar la consulta de las personas
 $stmt->execute();
 $result = $stmt->get_result();
 
-// Crear la consulta
+//&Crear la consulta, este otro se usa para mostrar las imagenes para seleccionar la actividad
 $stmt2 = $conn->prepare("SELECT * FROM imagenes");
 
-// Ejecutar la consulta
+//&Ejecutar la consulta de las imagenes
 $stmt2->execute();
 $result2 = $stmt2->get_result();
 $count = 0;
 
+//&Esta parte se usa para comprobar si han sido introducidos los datos
 if (isset($_POST['fecha'])) {
     $fecha = $_POST["fecha"];
     $hora = $_POST["hora"];
     $idImagen = $_POST["img"];
     $idUsu = $_POST["id"];
 
-    // Crear la consulta
+    //&Crear la consulta se introducen los datos en la base
     $stmt3 = $conn->prepare("INSERT INTO agenda (fecha, hora, idpersona, idimagen) VALUES (?,?,?,?)");
     $stmt3->bind_param("ssii", $fecha, $hora, $idUsu, $idImagen);
 
@@ -61,6 +62,7 @@ if (isset($_POST['fecha'])) {
         <br>
         <label for="id" class="form-label">Persona:</label>
         <select name="id" id="id" class="form-select" required>
+            //&Dentro del select lo que hacemos es reproducir los nombres de las personas con un for que lea la tabla
             <?php
             for ($i = 0; $i < $result->num_rows; $i++) {
                 $row = $result->fetch_assoc();
@@ -77,6 +79,7 @@ if (isset($_POST['fecha'])) {
         <table border='5px'>
             <tr>
                 <?php
+                //&For para leer la lista de imagenes y mostrar la imagen y su id
                 for ($i = 0; $i < $result2->num_rows; $i++) {
                     $row = $result2->fetch_assoc();
                     $img = $row['imagen'];
@@ -87,6 +90,8 @@ if (isset($_POST['fecha'])) {
                     echo "<span> Imagen:" . $idimg . "</span>";
                     echo "<input type='radio' name='img' id='img' value='" . $idimg . "'>";
                     echo "</td>";
+
+                    //&Hacemos el contador para saltar de línea 
 
                     if ($count < 3) {
                         $count++;

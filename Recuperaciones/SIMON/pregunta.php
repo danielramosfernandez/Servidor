@@ -61,15 +61,15 @@
 </head>
 <body>
     <h1>SIMÓN</h1>
-    <h2><?php echo $_SESSION['usu']; ?> pulsa los botones en el orden correspondiente</h2>
+    <h2><?php echo $_SESSION['usu']; ?> pulsa los colores para pintar estos circulos</h2>
     <div class="circulos">
         <?php  $_SESSION["respuesta"] = pintar_circulos($_SESSION["res1"],$_SESSION["res2"],$_SESSION["res3"],$_SESSION["res4"]); ?>
     </div>
     <form action="#" method="post">
-        <input type="submit" value="red" name="tempColor" style="background-color: red; color: white;>
-        <input type="submit" value="green" name="tempColor" style="background-color: green; color: white;>
-        <input type="submit" value="blue" name="tempColor" style="background-color: blue; color: white;>
-        <input type="submit" value="yellow" name="tempColor" style="background-color: yellow; color: white;>
+        <input type="submit" value="red" name="tempColor" style="background-color: red; color: white;">
+        <input type="submit" value="green" name="tempColor" style="background-color: green; color: white;">
+        <input type="submit" value="blue" name="tempColor" style="background-color: blue; color: white;">
+        <input type="submit" value="yellow" name="tempColor" style="background-color: yellow; color: black;">
     </form>
     
     

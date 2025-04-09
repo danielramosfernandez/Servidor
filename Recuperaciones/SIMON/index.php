@@ -1,52 +1,64 @@
-//&Seccion de conexion a la base
 <?php
-session_start(); 
-require_once 'conexion.php'; 
-//&Comprobamos que el usuario ha sido escrito en el formulario
-if(isset($_POST['usu'])){ 
-$usu= $_POST['usu']; 
-$contra= $_POST['psw']; 
+session_start();
+require_once 'conexion.php';
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
-//&Se abre la conexion
-$connection = new mysqli($hn,$un,$pw,$db); 
-if ($connection->connect_error) die("Fatal Error"); 
+if (isset($_POST['usu'])) {
+    $usu = $_POST['usu'];
+    $contra = $_POST['psw'];
 
-//&Consulta
-$query="SELECT Codigo,Nombre,Clave FROM usuarios WHERE Nombre='$usu' AND Clave='$psw'";
-$result=$connection->query($query); 
+    $connection = new mysqli($hn, $un, $pw, $db);
+    if ($connection->connect_error) die("Error de conexión a la base de datos.");
 
-if(!$result) die("Fatal  Error"); 
-$rows = $result->num_rows; 
-if($rows!=0){ 
-    $_SESSION['usu']=$_POST['usu']; 
-    //&Reiniciamos el puntero con data seek
-    $result-> data_seek(0);
-    $_SESSION['cod']=htmlspecialchars($result->fetch_assoc['Codigo']); 
-    echo "LOGUEADO CORRECTAMENTE"; 
-    $connection->close(); 
-    echo<<<_END
-        <meta http-equiv="refresh" content="0;URL='jugar.php"/>
-    _END;
-}else{ 
-    session_destroy();
-    echo "<a href='index.php'>NO EXISTE EL USUARIO Y/O CONTRASEÑA, VUELVA A INTENTARLO</a>";
-}
+    $query = "SELECT Codigo, Nombre, Clave, Rol FROM usuarios WHERE Nombre='$usu' AND Clave='$contra'";
+    $result = $connection->query($query);
+    if (!$result) die("Error en la consulta.");
+
+    if ($result->num_rows != 0) {
+        $fila = $result->fetch_assoc();
+        $_SESSION['usu'] = $fila['Nombre'];
+        $_SESSION['cod'] = $fila['Codigo'];
+        $_SESSION['rol'] = (int)$fila['Rol'];
+
+        $connection->close();
+        if ($_SESSION['rol'] === 1) {
+            echo "ADMIN: Redirigiendo a dificultad.php...";
+            header("Location: menu-dificultad.php");
+            exit();
+        } elseif ($_SESSION['rol'] === 0) {
+            echo "USUARIO: Redirigiendo a jugar.php...";
+            header("Location: jugar.php");
+            exit();
+        } else {
+            echo "ROL DESCONOCIDO: " . $_SESSION['rol'];
+            exit();
+        }
+        
+    } else {
+        session_destroy();
+        echo "<a href='index.php'> Usuario y/o contraseña incorrectos. Volver a intentar.</a>";
+    }
 }
 ?>
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIMÓN</title>
+    <title>SIMÓN - Iniciar Sesión</title>
 </head>
 <body>
     <h1>JUGAR AL SIMÓN</h1>
     <form action="#" method="post">
         <label for="usu">Usuario: </label>
         <input type="text" id="usu" name="usu" required><br>
+
         <label for="psw">Contraseña: </label>
         <input type="password" id="psw" name="psw" required><br> 
+
         <input type="submit" value="Iniciar" name="submit">
     </form>
 </body>

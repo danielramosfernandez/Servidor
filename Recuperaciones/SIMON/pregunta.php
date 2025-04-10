@@ -2,22 +2,16 @@
 session_start();
 require_once "pintar-circulos.php";
 
-// Obtener nivel de dificultad (por defecto 4 si no está definido)
-$nivel = isset($_SESSION['nivel']) ? $_SESSION['nivel'] : 4;
+$nivel = $_SESSION['nivel'] ?? 4;
 
-// Inicializar colores en negro solo hasta la cantidad del nivel
 for ($i = 1; $i <= $nivel; $i++) {
     $key = "res$i";
-    if (!isset($_SESSION[$key])) {
-        $_SESSION[$key] = "black";
-    }
+    $_SESSION[$key] = $_SESSION[$key] ?? "black";
 }
 
-// Procesar el color enviado por el usuario
 if (isset($_POST["tempColor"])) {
     $tempColor = $_POST["tempColor"];
 
-    // Encontrar el primer color aún en negro y asignarle el valor seleccionado
     for ($i = 1; $i <= $nivel; $i++) {
         $key = "res$i";
         if ($_SESSION[$key] === "black") {
@@ -26,7 +20,6 @@ if (isset($_POST["tempColor"])) {
         }
     }
 
-    // Verificar si ya están todos los colores asignados
     $completado = true;
     for ($i = 1; $i <= $nivel; $i++) {
         if ($_SESSION["res$i"] === "black") {
@@ -35,7 +28,6 @@ if (isset($_POST["tempColor"])) {
         }
     }
 
-    // Si se han completado todos, guardar la respuesta y redirigir
     if ($completado) {
         $respuesta = [];
         for ($i = 1; $i <= $nivel; $i++) {
@@ -43,10 +35,7 @@ if (isset($_POST["tempColor"])) {
         }
         $_SESSION["respuesta"] = $respuesta;
 
-        // Redirigir a comprobar.php
-        echo <<< _END
-            <meta http-equiv="refresh" content="0;url=comprobar.php">
-        _END;
+        echo '<meta http-equiv="refresh" content="0;url=comprobar.php">';
     }
 }
 ?>
@@ -75,7 +64,6 @@ if (isset($_POST["tempColor"])) {
 
     <div class="circulos">
         <?php 
-        // Pintar solo los círculos necesarios según el nivel
         $colores = [];
         for ($i = 1; $i <= $nivel; $i++) {
             $colores[] = $_SESSION["res$i"];

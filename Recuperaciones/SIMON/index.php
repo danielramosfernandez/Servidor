@@ -1,8 +1,6 @@
 <?php
 session_start();
 require_once 'conexion.php';
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
 
 if (isset($_POST['usu'])) {
     $usu = $_POST['usu'];
@@ -22,26 +20,23 @@ if (isset($_POST['usu'])) {
         $_SESSION['rol'] = (int)$fila['Rol'];
 
         $connection->close();
+
         if ($_SESSION['rol'] === 1) {
-            echo "ADMIN: Redirigiendo a dificultad.php...";
             header("Location: menu-dificultad.php");
             exit();
         } elseif ($_SESSION['rol'] === 0) {
-            echo "USUARIO: Redirigiendo a jugar.php...";
             header("Location: jugar.php");
             exit();
         } else {
             echo "ROL DESCONOCIDO: " . $_SESSION['rol'];
             exit();
         }
-        
     } else {
         session_destroy();
-        echo "<a href='index.php'> Usuario y/o contraseña incorrectos. Volver a intentar.</a>";
+        echo "<a href='index.php'>Usuario y/o contraseña incorrectos. Volver a intentar.</a>";
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="es">

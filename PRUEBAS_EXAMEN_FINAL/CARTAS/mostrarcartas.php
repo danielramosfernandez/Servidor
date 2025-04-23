@@ -35,7 +35,8 @@
         
     </form>
     <form action="resultado.php" method="post">
-        <span>Pareja: </span><input type="number" id="x" name="x" min="1" max="6" required><input type="number" id="y" name="y" min="1" max="6" required>
+        <span>Pareja: </span><input type="number" id="x" name="x" min="1" max="6" required>
+        <input type="number" id="y" name="y" min="1" max="6" required>
         <input type="submit" value="Comprobar">
     </form>
     <br><br>

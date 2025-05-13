@@ -1,7 +1,10 @@
 <?php
 require_once('conexion.php');
 session_start();
-
+if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== "director") { 
+    header("Location: inicio.php");
+    exit();
+}
 if (isset($_POST['id'])) {
     $alumno = $_POST['id'];
     $asignatura = $_POST['asignatura'];
@@ -21,7 +24,6 @@ if (isset($_POST['id'])) {
 }
 ?>
 
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -23,7 +23,11 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== "director") {
         <br>
     <button onclick="window.location.href='insertar.php'">Insertar notas</button>
         <br>
+     <button onclick="window.location.href='insertar-punto.php'">Insercion en grupos</button>
+        <br>
     <button onclick="window.location.href='mostrar-notas.php'">Mostrar notas de todos los alumnos</button>
+        <br>
+    <button onclick="window.location.href='borrar-notas.php'">Borrado de notas</button>
         <br>
     <button onclick="window.location.href='cierre.php'">Cerrar sesion</button>
     

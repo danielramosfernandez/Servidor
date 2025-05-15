@@ -15,6 +15,16 @@ $notas = $conn->prepare('
 *Si no hay coincidencias en ambas tablas, no se muestra nada.
 */
 
+/* 
+^Condicion que este aprobado
+$notas = $conn->prepare('
+    SELECT notas.asignatura, notas.nota 
+    FROM notas 
+    INNER JOIN usuarios ON notas.alumno = usuarios.id   
+    WHERE usuarios.usuario = ? AND notas.nota > 5
+');
+
+*/
 
 /* 
 &Utilizacion de having: 
@@ -124,4 +134,35 @@ $notas->bind_param('s', $_SESSION['usuario']);
 Similar al LEFT JOIN pero al revés: muestra todas las notas, y si alguna no tiene un usuario coincidente, igual la muestra.
 
 En este caso no es útil porque siempre filtrás por usuarios.usuario = ?, así que nunca habrá notas sin usuario. -->
-<
+
+<!--
+&Para que muestre las notas debajo de las asignaturas es asi: 
+
+(iniciar php)
+// Guardamos los datos en arrays
+$asignaturas = [];
+$notas_array = [];
+
+while ($fila = $info->fetch_assoc()) {
+    $asignaturas[] = htmlspecialchars($fila['asignatura']);
+    $notas_array[] = htmlspecialchars($fila['nota']);
+}
+?>
+
+<table border="1" cellpadding="10" cellspacing="0">
+    <thead>
+        <tr>
+            (inciar php) foreach ($asignaturas as $asig): (cerrar php)
+                <th>  (inciar php) echo $asig; (cerrar php)</th>
+          (inciar php) endforeach;(cerrar php)
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            (inciar php) foreach ($notas_array as $nota): (cerrar ph)p
+                <td>(inciar php) echo $nota; (cerrar php)</td>
+           (inciar php) endforeach; (cerrar php)
+        </tr>
+    </tbody>
+</table> 
+ -->

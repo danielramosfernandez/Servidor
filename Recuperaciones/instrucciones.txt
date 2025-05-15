@@ -1,0 +1,45 @@
+            --Funcionamiento de los select para crear tablas--
+
+1.Select Báscio ---> SELECT ___ FROM ___ 
+
+2.WHERE ---> SELECT ___ FROM ___ WHERE ___ 
+
+3.JOIN ---> SELECT ___ FROM ___ INNER JOIN ___ ON ___ 
+
+           |----------------------------------------|
+           |SELECT u.nombre, n.nota FROM usuarios u |
+           |INNER JOIN notas n on u.id=n.alumno     |
+           |----------------------------------------|
+           |Une las tablas de usuarios y notas, solo|
+           |si el ID del usuario cioincide con el   |
+           |alumno de la tabla notas en este caso   |
+           |----------------------------------------|
+
+4.Left Join y Right Join --->SELECT ___ FROM ___ LEFT JOIN ___ ON ___ 
+    -Left Join: todos los datos, aunque no tengan coincidencias en la derecha.
+    -Right Join: lo mismo pero al revés. 
+
+5.Group By ---> SELECT ___ FROM ___ GROUP BY ___ 
+    -Sirve para agrupar 
+
+            --CREACION DE LA TABLA EN HTML-- 
+
+1.Se recorre los resultados con un WHILE 
+    -Fetch_assoc(): convierte cada fila en un array. 
+
+2.Se usa html dentro del bucle. 
+    -TR---> Son las filas. 
+    -TD---> Son las celdas. 
+
+            --ESQUEMA DE LOS ARCHIVOS DE MODIFICAR-- 
+1.modificar_control.php 
+|   -Sirve para validar que se quiere modificar. 
+v
+2.modificado.php 
+|   -Archivo con la parte PHP del ejercicio anterior. 
+v
+3.actualizar.php 
+|   -Formulario para actualizar la información seleccionada.
+v
+4.modificacion.php 
+    -Es la parte de control del archivo anterior

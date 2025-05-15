@@ -52,7 +52,7 @@ if (isset($_POST['usuario'])) {
         <label for="usuario">Usuario: </label>
         <input type="text" id="usuario" name="usuario" required><br>
 
-        <label for="psw">Contraseña: </label>
+        <label for="password">Contraseña: </label>
         <input type="password" id="password" name="password" required><br> 
 
         <input type="submit" value="Iniciar" name="submit">

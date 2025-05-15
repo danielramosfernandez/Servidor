@@ -46,4 +46,40 @@
         </div>
     </div>
 </body>
+</html> 
+<!-- <?php
+session_start();
+if (!isset($_SESSION["usuario"])) {
+    header("Location: ../login.php");
+    exit;
+}
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Modificar Control</title>
+</head>
+<body>
+    <h1>Modificar Control</h1>
+
+    <form action="../bbdd/modificacion.php" method="POST">
+        <label for="deporte">Deporte:</label><br>
+        <input type="text" id="deporte" name="deporte" required><br><br>
+
+        <label for="lenta">Lenta:</label><br>
+        <input type="text" id="lenta" name="lenta" required><br><br>
+
+        <label for="fecha">Fecha:</label><br>
+        <input type="date" id="fecha" name="fecha" max="<?php echo date('Y-m-d'); ?>" required><br><br>
+
+        <input type="hidden" name="fecha" value="<?php echo $_SESSION['fecha']; ?>">
+        <input type="hidden" name="id_usu" value="<?php echo $_SESSION['id_usu']; ?>">
+
+        <p>¿Estás seguro de que deseas modificar este registro de control?</p>
+
+        <input type="submit" value="Modificar">
+    </form>
+</body>
 </html>
+ -->

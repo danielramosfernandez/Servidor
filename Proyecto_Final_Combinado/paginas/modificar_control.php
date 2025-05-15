@@ -42,4 +42,31 @@ if (!isset($_SESSION["usuario"])) {
     header("Location: ../login.php");
     exit;
 }
+?> 
+<!-- <?php
+session_start();
+if (!isset($_SESSION["usuario"])) {
+    header("Location: ../login.php");
+    exit;
+}
 ?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Modificar Control</title>
+</head>
+<body>
+  <h1>Modificar Registro de Control</h1>
+
+  <form action="../bbdd/modificado.php" method="POST">
+    <label for="fecha">Fecha del control:</label><br>
+    <input type="date" id="fecha" name="fecha" max="<?php echo date('Y-m-d'); ?>" required><br><br>
+
+    <p>¿Estás seguro de que deseas modificar este registro de control?</p>
+
+    <input type="submit" value="Modificar">
+  </form>
+</body>
+</html>
+ -->
